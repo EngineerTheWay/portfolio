@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'portfolio.way-caleb.workers.dev',
+    site: 'https://portfolio.way-caleb.workers.dev',
   integrations: [mdx(), sitemap()],
 
   vite: {
