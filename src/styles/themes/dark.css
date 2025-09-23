@@ -1,10 +1,10 @@
 /* Dark theme tokens. Applied when an ancestor sets [data-theme="dark"] or .dark */
 [data-theme="dark"],
 .dark {
-  /* Primary Brand Colors (Flowing Orange) */
-  --accent: #FF8A4C;
-  --accent-dark: #F97316;
-  --accent-rgb: 255, 138, 76;
+  /* Primary Brand Colors (SF Red-Orange) */
+  --accent: #E04F27; /* SF red-orange */
+  --accent-dark: #B53D1F; /* deeper shade */
+  --accent-rgb: 224, 79, 39;
 
   /* Neutral Colors */
   --black: 255, 255, 255;
@@ -23,7 +23,7 @@
   --color-border: rgba(var(--gray-light), 0.3);
   --color-border-light: rgba(var(--gray-light), 0.1);
   --color-accent-text: var(--accent);
-  --color-accent-bg: rgba(var(--accent), 0.15);
+  --color-accent-bg: rgba(var(--accent-rgb), 0.15);
 
   /* Translucent surfaces */
   --surface-100: rgba(255, 255, 255, 0.05);
@@ -46,19 +46,19 @@
   /* Map to Starwind token variables */
   --background: #1E1E1E;
   --foreground: rgb(243, 244, 246);
-  /* Translucent card surface on dark bg */
   --card: rgba(255, 255, 255, 0.04);
   --card-foreground: rgb(243, 244, 246);
   --popover: #282c34;
   --popover-foreground: rgb(243, 244, 246);
-  --primary: #FF8A4C;
+  --primary: var(--accent);
   --primary-foreground: #0f1219;
-  --secondary: #FFB36B;
+  --secondary: #F6A77A;
   --secondary-foreground: rgb(243, 244, 246);
   --muted: rgba(255, 255, 255, 0.06);
   --muted-foreground: rgb(171, 178, 191);
   --accent-foreground: #0f1219;
-  /* Semantic colors from old project */
+
+  /* Semantic colors */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
@@ -67,10 +67,8 @@
   --success-foreground: #052e16;
   --warning-foreground: #451a03;
   --error-foreground: #ffffff;
-  /* Slightly softer borders on translucent surfaces */
+
   --border: var(--surface-300);
   --input: var(--surface-300);
-  --outline: #F97316;
+  --outline: var(--accent);
 }
-
-
