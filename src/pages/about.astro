@@ -1,26 +1,29 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 import GlowLineSeparator from '@/components/ui/separator/GlowLineSeparator.astro';
+import ArrowSeparator from '@/components/ui/separator/ArrowSeparator.astro';
 const pageTitle = 'About Me';
-const pageDescription = 'Learn more about my background and my career transition into tech.';
+const pageDescription = 'Learn more about me, my background, and my career.';
 ---
 
 <Layout title={pageTitle} description={pageDescription} pubDate={new Date()} showHeader={false}>
   <p>
-    Hey! I'm a senior software engineer who loves designing reliable systems and shipping products that feel great to use.
+    I’m Caleb, an Air Force veteran transitioning into the tech sector with a focus on bridging business and technology.
   </p>
   <p>
-    I work across the stack with TypeScript, Node.js, React/Next.js, and PostgreSQL. I care deeply about readable code,
-    strong tests, and observability. My approach: ship small, iterate quickly, measure outcomes.
+    Over the past 8 years, I’ve worked across cyber operations, intelligence, and military training—leading diverse teams, managing programs, and driving process improvements in high-stakes environments. Those experiences taught me how to translate complex systems into clear outcomes and lead people through change.
   </p>
   <p>
-    Recent highlights include leading a migration from a monolith to well‑scoped services, improving p95 latency,
-    and introducing CI/CD with preview environments and quality gates.
+    As I prepare for my next chapter, I’m completing a Master’s in Information Technology with a concentration in cybersecurity while building hands-on expertise in cloud platforms, cybersecurity, and business analysis. My goal is to help organizations adopt modern systems, strengthen security, and create meaningful impact through technology.
   </p>
   <p>
-    Outside of feature work, I enjoy mentoring, documentation, and building design‑system components that make teams faster.
-    Always learning—and always happy to collaborate on meaningful problems.
+    Beyond the technical side, I’m passionate about mentorship and connecting people with the tools and systems that make their work more effective. For me, technology is most powerful when it empowers people, simplifies complexity, and drives lasting impact.
   </p>
+  <p>
+    Outside of work, I enjoy hiking, camping, and exploring new restaurants. At home, you’ll often find me playing video games, planning my next trip abroad, or studying new languages and cultures.
+  </p>
+        <GlowLineSeparator />
+</Layout>
 
   <GlowLineSeparator />
 

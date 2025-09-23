@@ -33,12 +33,12 @@ import figmaLogo from '../assets/logos/Figma-logo.svg';
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Site Author',
+      name: 'Caleb Way',
       url: new URL('/', Astro.site).toString(),
       logo: new URL('/favicon.svg', Astro.site).toString(),
       sameAs: [
-        'https://x.com/guihubie',
-        'https://www.linkedin.com/in/guilherme-hubie/',
+        'https://github.com/EngineerTheWay',
+        'https://www.linkedin.com/in/waycaleb/',
       ],
     })} />
 	</head>
@@ -47,7 +47,7 @@ import figmaLogo from '../assets/logos/Figma-logo.svg';
 		<main>
       <HeroSection
         title="Caleb's Portfolio"
-        subtitle="I help organizations automate workflows and modernize business systems."
+        subtitle="From military service to tech, I’m building a career at the intersection of business & technology—helping organizations modernize business systems, strengthen security, and deliver greater results."
         showCTA
         primaryCTA={{ text: 'View Projects', href: '/portfolio' }}
         secondaryCTA={{ text: 'Read Blog', href: '/blog' }}
@@ -56,12 +56,13 @@ import figmaLogo from '../assets/logos/Figma-logo.svg';
 
     <section class="py-6">
       <ArrowSeparator />
-      <SkillsSection title="Skills & Tools" skills={skills} />   
+      <SkillsSection title="Skills & Tools" skills={skills} />
       <ArrowSeparator />
       <WorkExperience title="Professional Experience" items={work} />
       <ArrowSeparator />
       <Studies title="Education" items={studies} />
       <GlowLineSeparator />
+
     </section>
 		</main>
 		<Footer />

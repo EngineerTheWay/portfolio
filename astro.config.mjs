@@ -11,7 +11,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
     adapter: cloudflare(),
-    site: 'https://portfolio.way-caleb.workers.dev',
+    site: 'https://calebway.io',
   integrations: [mdx(), sitemap()],
 
   vite: {

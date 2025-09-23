@@ -12,7 +12,7 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
             </a>
             <div class="internal-links hidden md:flex items-center gap-2 ml-1">
                 <HeaderLink href="/" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Home</HeaderLink>
-                <HeaderLink href="/portfolio" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Portfolio</HeaderLink>
+                <HeaderLink href="/projects" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Projects</HeaderLink>
                 <HeaderLink href="/blog" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Blog</HeaderLink>
                 <HeaderLink href="/about" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">About</HeaderLink>
                 <a href="#contact" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Contact</a>
@@ -20,9 +20,9 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
         </div>
         <div class="flex items-center gap-3">
             <div class="social-links hidden md:flex items-center gap-3">
-                <a href="https://linkedin.com/in/waycaleb" target="_blank" class="group text-[color:var(--color-text-secondary)]">
-                    <span class="sr-only">Follow on Twitter</span>
-                    <!-- X icon -->
+                <a href="https://linkedin.com/in/waycaleb" target="_blank" class="group text-[color:var(--color-text-secondary)] relative -top-[2px]">
+                    <span class="sr-only">Connect with me on LinkedIn!</span>
+                    <!-- LinkedIn icon -->
                     <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"
                             class="transition-colors group-hover:text-[color:var(--accent)]">
                             <path fill="currentColor" d="M4.983 3.5C4.983 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.983 2.12 4.983 3.5zM.25 8.25h4.5V24h-4.5V8.25zm7.75 0h4.312v2.144h.062c.6-1.137 2.062-2.312 4.25-2.312 4.544 0 5.375 2.987 5.375 6.875V24h-4.5v-8.25c0-1.963-.037-4.5-2.75-4.5-2.75 0-3.188 2.15-3.188 4.375V24h-4.5V8.25z"/></svg>
@@ -42,7 +42,7 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
         <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2">
             <div class="flex flex-col">
                 <HeaderLink href="/" class="px-2 py-3">Resume</HeaderLink>
-                <HeaderLink href="/portfolio" class="px-2 py-3">Portfolio</HeaderLink>
+                <HeaderLink href="/projects" class="px-2 py-3">Projects</HeaderLink>
                 <HeaderLink href="/about" class="px-2 py-3">About</HeaderLink>
                 <HeaderLink href="/blog" class="px-2 py-3">Blog</HeaderLink>
                 <a href="#contact" class="px-2 py-3">Contact</a>

@@ -10,15 +10,15 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const authorSlugs = [
     ...new Set(
-      posts.map((p) => slugify(p.data.author || 'Site Author'))
+      posts.map((p) => slugify(p.data.author || 'Caleb Way'))
     ),
   ];
   return authorSlugs.map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
-const posts = (await getCollection('blog')).filter((p) => slugify(p.data.author || 'Site Author') === slug);
-const authorName = posts[0]?.data.author || 'Site Author';
+const posts = (await getCollection('blog')).filter((p) => slugify(p.data.author || 'Caleb Way') === slug);
+const authorName = posts[0]?.data.author || 'Caleb Way';
 ---
 <html lang="en" data-theme="dark" class="dark">
   <head>
@@ -33,6 +33,7 @@ const authorName = posts[0]?.data.author || 'Site Author';
           <PostCard post={p} />
         ))}
       </div>
+    <a href="/blog" class="sw-btn">← All Blog Posts</a>
     </main>
     <Footer />
   </body>
