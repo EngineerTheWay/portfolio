@@ -111,13 +111,13 @@ src/
 ├── assets/                     # Logos, icons, hero images
 │   └── logos/, icons/          # Added custom SVGs for tech stack
 ├── components/
-│   ├── badge/Badge.astro       # NEW: renders tech stack badges
+├── badge/BaseHead.astro        # MODIFIED: Updated open graph image
+├── badge/Badge.astro           # NEW: renders tech stack badges
 │   ├── button/Button.astro     # MODIFIED: supports size/variant system
 │   ├── ui/
 │   │   └── card/ProjectCard.astro   # NEW: custom card for projects
 │   └── sections/
 │       ├── Projects.astro           # NEW: grid renderer for project cards
-│       ├── ProjectHero.astro        # NEW: hero section for projects index
 │       ├── Header.astro             # MODIFIED: socials trimmed, LinkedIn added
 │       └── Footer.astro             # MODIFIED: socials trimmed
 ├── content/
@@ -127,18 +127,28 @@ src/
 │   └── projects.ts             # ❌ REMOVED: removed as this was replaced with the slugified projects.
 ├── layouts/
 │   ├── BlogPost.astro          # MODIFIED: added "← All Blog Posts" button
-│   └── ProjectsPost.astro      # NEW: layout for project detail pages
+│   └── ProjectsPost.astro      # NEW: layout for project detail pages, more attuned to case study write-ups
 └── pages/
     ├── 404.astro               # MODIFIED: Added a "View Projects" button 
     ├── portfolio.astro         # ❌ REMOVED: removed as this was replaced with the slugified projects.
     ├── blog/
-    │   ├── index.astro
-    │   ├── [slug].astro
-    │   ├── category/[category].astro
-    │   └── page/[page].astro
+    │   ├── index.astro                # MODIFIED: added "← All Blog Posts" button for easier nav
+    │   ├── [slug].astro               # MODIFIED: added "← All Blog Posts" button for easier nav
+    │   └── category/[category].astro  # MODIFIED: added "← All Blog Posts" button for easier nav
+    │   └── tag/[tag].astro            # MODIFIED: added "← All Blog Posts" button for easier nav
     └── projects/
         ├── index.astro          # NEW: projects index page
         └── [slug].astro         # NEW: slug-based project detail pages
 
 content.config.ts                # MODIFIED: added projects collection schema
+```
+<br><br>
+
+### </> Planned Modifications <br>
+```bash
+src/
+Blog System: Add category sort buttons at the top of paginated view. Currently the cateogory system is there be unused.
+
+Projects System: Make tech stack badges an interactive UI component. Add a feature to paginate by tech stack.
+
 ```
