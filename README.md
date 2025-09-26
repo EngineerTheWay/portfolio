@@ -146,7 +146,6 @@ content.config.ts                # MODIFIED: added projects collection schema
 
 ### </> Planned Modifications <br>
 ```bash
-src/
 Blog System: Add category sort buttons at the top of paginated view. Currently the cateogory system is there be unused.
 
 Projects System: Make tech stack badges an interactive UI component. Add a feature to paginate by tech stack.
