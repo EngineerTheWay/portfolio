@@ -1,10 +1,9 @@
 /* Dark theme tokens. Applied when an ancestor sets [data-theme="dark"] or .dark */
 [data-theme="dark"],
 .dark {
-  /* Primary Brand Colors (SF Red-Orange) */
-  --accent: #E04F27; /* SF red-orange */
-  --accent-dark: #B53D1F; /* deeper shade */
-  --accent-rgb: 224, 79, 39;
+    --accent: #C0362C; 
+    --accent-dark: #E05548;
+    --accent-rgb: 235, 110, 100;
 
   /* Neutral Colors */
   --black: 255, 255, 255;
@@ -23,7 +22,7 @@
   --color-border: rgba(var(--gray-light), 0.3);
   --color-border-light: rgba(var(--gray-light), 0.1);
   --color-accent-text: var(--accent);
-  --color-accent-bg: rgba(var(--accent-rgb), 0.15);
+  --color-accent-bg: rgba(var(--accent-rgb), 0.25);
 
   /* Translucent surfaces */
   --surface-100: rgba(255, 255, 255, 0.05);

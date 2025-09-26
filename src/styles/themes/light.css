@@ -1,9 +1,9 @@
 /* Light theme tokens. Applied when an ancestor sets [data-theme="light"] (default) */
 [data-theme="light"] {
-  --accent: #E04F27; /* SF red-orange */
-  --accent-dark: #B53D1F; /* deeper shade for hover/contrast */
-  --accent-rgb: 224, 79, 39;
-
+    --accent: #C0362C;    
+    --accent-dark: #8A241E;
+    --accent-rgb: 192, 54, 44;
+    
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;

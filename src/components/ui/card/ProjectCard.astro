@@ -33,7 +33,7 @@ const { entry, icon } = Astro.props as Props;
     {entry.data.description}
   </p>
 
-<div class="mt-auto pt-6 flex justify-center gap-3">
+<div class="mt-auto pt-6 flex flex-col sm:flex-row gap-3 justify-center">
   <Button
     href={`/projects/${entry.slug ?? entry.id.replace(/\.mdx?$/, "")}/`}
     variant="primary"
@@ -41,7 +41,6 @@ const { entry, icon } = Astro.props as Props;
   >
     {entry.data.ctaText ?? "View Case Study"}
   </Button>
-
   {entry.data.sourceLink && (
     <Button
       href={entry.data.sourceLink}

@@ -2,7 +2,7 @@
 title: 'Security+: Certifying Cyber Foundations'
 description: 'The path, tools, and methods that helped me earn Security+.'
 pubDate: 'Sep 24 2025'
-heroImage: '../../assets/images/security.png'
+heroImage: '../../assets/images/security.jpg'
 category: 'Showcase'
 tags: ['IT', 'cybersecurity', 'CompTIA']
 ---
@@ -16,61 +16,35 @@ Early in my career, I trained on everything from IT fundamentals to hands-on eth
 The certification gave me a foundation in cybersecurity & IT risk management—certifying my knowledge in computer networks, risk frameworks, cryptography, and incident response. Security+ gave me something that would build on my graduate coursework and military background while also being recognized broadly in the private sector. <br><br>
 
 
-### Pain Points  
+### Things I have to review
 
-Even with coursework and prior experience, certain areas challenged me:  
+Even with coursework and prior experience, certain areas I had to brush up on:
 
-#### 1. Encryption Algorithms & Key Management
-- AES, 3DES, RSA, ECC, Diffie-Hellman and their use cases.  
-- Remembering proper key lengths (e.g., AES-256 vs RSA-2048).  
-- Hashing algorithms (SHA-1/256/512, MD5) and their strengths/weaknesses.  <br><br>
+### 1. Abbreviations & Frameworks
+- Agreements: SLA, MOU, ISA, BPA, etc `(these are surprisingly tricky)`
+- Regulatory: NIST, ISO, GDPR, HIPAA, SOX, etc.
+- Security concepts: CIA triad, AAA, DLP, CASB.  <br><br>
 
-#### 2. Abbreviations & Frameworks
-- Regulatory: NIST, ISO, GDPR, HIPAA, SOX.  
-- Security concepts: CIA triad, AAA, DLP, CASB 
-- Agreements: SLA, MOU, ISA, BPA. `These were the worst.` <br><br>
+### 2. Ports & Protocols
+- Common ports like HTTPS 443, SSH 22, RDP 3389 were fine.  
+- Less obvious ports like TACACS+ 49, Kerberos 88, SNMP 161/162 took extra review.  
+- Secure vs insecure versions (POP3 vs POP3S, etc.) were easy to mix up.  <br><br>
 
-#### 3. Ports & Protocols
-- Common ports: HTTPS 443, SSH 22, RDP 3389 were easy but...
-- Less obvious: TACACS+ 49, Kerberos 88, SNMP 161/162 took some review.
-- Secure vs insecure: POP3 vs POP3S with largely different ports. <br><br>
-
-#### 4. Authentication & Access Control
+### 3. Authentication & Access Control
 - Models: MAC, DAC, RBAC, ABAC.  
-- Federation: SAML, OAuth, OpenID Connect, SSO.
-- Multifactor categories: know/have/are/do.  <br><br>
+- Federation: SAML, OAuth, OpenID Connect, SSO.  
+- IPSec modes and protocols (AH vs ESP, transport vs tunnel).  <br><br>
 
-#### 5. Risk & Response Concepts
-- Qualitative vs quantitative (ALE, SLE, ARO).  
-- Incident response phases: prep → identify → contain → eradicate → recover → lessons learned.  
-- BCP vs DRP distinctions.  <br><br>
+### 4. Risk & Response Concepts
+- Risk math: ALE, SLE, ARO.  
+- Incident response phases (prep → identify → contain → eradicate → recover → lessons learned).  
+- Difference between BCP and DRP.  <br><br>
 
-#### 6. Network Security Tools & Devices
-- NGFW, UTM, ACL, etc... and their use cases
-- Proxy vs reverse proxy.  
-- NAC: posture assessment, quarantine, remediation.  <br><br>
-
-#### 7. Wireless Security
-- WPA1/2 vs WPA3
-- EAP types: PEAP, EAP-TLS.  
-- Attacks: rogue AP, evil twin, etc. <br><br>
-
-#### 8. Attacks & Exploits
-- XSS vs CSRF vs SQLi  
-- Rainbow tables, dictionary, brute force, replay.  
-- Social engineering: phishing, smishing, vishing, pretexting.  <br><br>
-
-#### 9. Security Controls & Frameworks
-- Managerial vs operational vs technical controls.
-- NIST CSF: Identify, Protect, Detect, Respond, Recover.  
-- CIS Controls, ISO 27001 basics.  <br><br>
-
-#### 10. Cloud & Virtualization Security
-- SaaS, PaaS, IaaS, XaaS.  
-- Cloud types: public, private, hybrid, community.  
-- VM escape, container security, shared responsibility model.  <br><br>
-
-These areas forced me to slow down, revisit fundamentals, and find smarter ways to retain information.  <br><br>
+### 5. Attacks & Exploits
+- XSS vs CSRF vs SQLi.  
+- Password attacks: rainbow tables, dictionary, brute force, spraying.  
+- Social engineering varieties: phishing, smishing, vishing, pretexting.  
+- Various types of DDoS: amplified, reflected, and volumetric.  <br><br>
 
 
 ### How I Studied  
