@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Badge from "../components/ui/badge/Badge.astro";
+import Button from "../components/ui/button/Button.astro";
 import GlowLineSeparator from '../components/ui/separator/GlowLineSeparator.astro'
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
   icon?: ImageMetadata;
 }
 
-const { title, description, techStack, icon } = Astro.props as Props;
+const { title, description, techStack, icon, sourceLink } = Astro.props as Props;
 ---
 <head>
         <style>
@@ -71,6 +72,18 @@ const { title, description, techStack, icon } = Astro.props as Props;
          <span class="mx-2 text-[color:var(--color-text-muted)]">|</span>
          <Image src={icon} alt="" width={24} height={24} aria-hidden="true" />
       )}
+        {sourceLink && (
+          <span class="mx-2 text-[color:var(--color-text-muted)]">|</span>
+          <Button
+            href={sourceLink}
+            variant="secondary"
+            size="sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            &lt; Source Code &gt;
+          </Button>
+        )}
     </span>
         
     <br>

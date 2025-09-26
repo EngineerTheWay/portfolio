@@ -15,11 +15,11 @@ export const work = [
       company: "Defense Language Institute",
       region: "Monterey, CA",
       description:
-        "Managed the Air Force’s foreign language training pipeline across numerous schoolhouses. Advised senior leaders on program issues and student progression, retention, and attrition decisions. Modernized workflows and developed various internal business systems.",
+        "Managed the Air Force’s foreign language training pipeline across multiple schoolhouses, advising senior leaders on student progression, retention, and attrition. Improved reporting and decision-making by modernizing workflows and business systems with Microsoft 365 and Power Platform.",
       technologies: [
-        "Program Management",
-        "Risk Analysis",
+        "Workflow Automation",
         "Process Improvement",
+        "Risk Analysis",
         "Microsoft 365 Enterprise",
         "Power Platform"
       ],
@@ -29,9 +29,8 @@ export const work = [
       company: "Defense Language Institute — Washington",
       region: "Washington, D.C.",
       description:
-        "Oversaw a $17M training program across three campuses during a leadership vacancy, restoring continuity and student support. Initiated various process improvement and digital transformation initiatives using Microsoft 365, Power Platform, and other software tools.",
+        "Oversaw a $17M training program across three campuses during a leadership vacancy, restoring continuity and student support. Introduced workflow automations with Microsoft 365 and Power Platform that streamlined reporting and reduced manual administrative processes.",
       technologies: [
-        "Operations Management",
         "Workflow Automation",
         "Process Improvement",
         "Microsoft 365 Enterprise",
@@ -43,12 +42,12 @@ export const work = [
       company: "Defense Language Institute",
       region: "Monterey, CA",
       description:
-        "Faciliated classroom instruction and mentored students through a 48 week course. Chaired academic intervention and attrition boards. Developed a stopgap solution to format and centralize database outputs, enabling centralized performance tracking and supporting early academic interventions.",
+        "Facilitated classroom instruction and mentored students through a 48-week course. Chaired academic intervention and attrition boards. Built a modular Excel dashboard that transformed and centralized raw database outputs, increasing visibility into class performance and highlighting at-risk students.",
       technologies: [
         "Instruction & Training",
-        "Performance Analytics",
         "Stakeholder Management",
-        "Microsoft 365 Enterprise"
+        "Microsoft 365 Enterprise",
+        "Excel"
       ],
     },
     {
@@ -56,7 +55,7 @@ export const work = [
       company: "Marine Forces Cyber Command (MARFORCYBER)",
       region: "Fort Meade, MD",
       description:
-        "Conducted all-source cyber intelligence analysis in support of national-level cyber operations planning. Improved collaboration and planning through implementing Jira/Confluence to manage requirements. Authored numerous reports and provided daily briefings on adversary cyber activity.",
+        "Conducted all-source intelligence analysis in support of national-level cyber operations planning. Delivered daily briefings and reports on adversary activity to inform operations. Implemented Jira and Confluence to streamline requirements management and collaboration across cyber teams.",
       technologies: [
         "Cyber Intelligence",
         "Strategic Analysis",
@@ -70,13 +69,12 @@ export const work = [
       company: "United States Cyber Command (USCYBERCOM)",
       region: "Fort Gordon, GA",
       description:
-        "Led a team of linguists and cyber analysts, producing strategic reports that guided cyber operations and mission planning. Analyzed foreign communications, extracting linguistic and technical insights. Managed workflows for analysis and QA, ensuring accuracy of intelligence products. ",
+        "Led a team of linguists and cyber analysts producing strategic reports that guided cyber operations and mission planning. Analyzed foreign communications for technical and linguistic insights, while managing classified workflow tools to ensure accuracy of intelligence products.",
       technologies: [
         "Intelligence Analysis",
         "Cyber Operations",
-        "Workflow Design",
-        "Team Leadership",
-        "Linguistic Analysis"
+        "Foreign Language",
+        "Workflow Design"
       ],
     }
 ];

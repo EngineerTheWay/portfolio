@@ -1,6 +1,6 @@
 ---
 title: "Power Automate Workflows"
-description: "Built automated systems for training compliance, leave requests, and performance reporting—streamlining processes, cutting manual workload, and modernizing documentation in a high-tempo training environment."
+description: "Built automated systems for training compliance, leave requests, and performance reporting—reducing manual workload and modernizing workflows in a high-tempo military training environment."
 techStack:
   - Power Platform
   - Power Automate

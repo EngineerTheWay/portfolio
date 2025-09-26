@@ -10,7 +10,7 @@ tags: ['innovation', 'agile', 'leadership']
 
 Mission-driven organizations are among the most fulfilling to work for because they’re people-focused and purpose-driven. But that focus can make them resistant to change and innovation, especially around systems and processes.
 
-In many government orgs I’ve worked with, the mission takes priority, and suggestions to change how things work is seen as too risky even when the potential payoff might be huge.
+In many government organizations I’ve worked with, the mission takes priority, and suggestions to change how things work is easily seen as too risky even when the potential payoff might be huge.
 
 Here’s how I approach leading innovation in those environments without losing focus on the mission.<br><br>
 

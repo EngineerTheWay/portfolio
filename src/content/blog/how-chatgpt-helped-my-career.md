@@ -10,9 +10,9 @@ tags: ['career transition', 'genAI']
 
 ### An Unexpected Career Mentor
 
-Choosing to leave the military after nearly a decade as a linguist wasn’t easy. The transition meant letting go of structure and mission and figuring out what came next.  
+Choosing to leave the military after nearly a decade wasn’t easy. The transition meant letting go of structure and mission and figuring out what came next for me and my family.
 
-I had experience in the military and I wanted to use that experience to turn the page and start a new career in the private sector. That’s when I turned to ChatGPT.  
+I had unique experiences in the military and I wanted to use that experience to turn the page and start a new career in the private sector. That’s when I turned to ChatGPT.  
 
 It helped me sort through ideas, clarify options, and imagine new directions. Unexpectedly, it became a trusted sounding board during one of the biggest shifts in my life.  <br><br>
 
@@ -20,9 +20,9 @@ It helped me sort through ideas, clarify options, and imagine new directions. Un
 
 - **Clarifying My Career Direction:** I used ChatGPT to analyze potential career paths that aligned with my goals, interests, and ideal lifestyle.  
 
-- **Researching Schools:** It helped me compare business school programs based on culture, lifestyle, and fit, not just rankings.  
+- **Researching Schools:** It helped me make grounded decisions about what programs would be best for me to pursue with my GI Bill after seperation.  
 
-- **Prioritizing Certifications:** It helped me narrow down what certifications and trainings were worth pursuing (and what weren’t) based on my goals.  
+- **Prioritizing Certifications:** It helped me narrow down what certifications and trainings were worth pursuing (and what weren’t) based on my goals. 
 
 - **Staying Accountable:** I set up rules and guidelines in my chats to help me stay focused and take consistent action.  
 
@@ -43,9 +43,9 @@ It helped me sort through ideas, clarify options, and imagine new directions. Un
 
 ### Things to Keep in Mind
 
-- **Always bring your own ideas.** Let it support your thinking, not replace it. Treat it as scaffolding to get past mental blocks and identify blind spots, not as a replacement for original thought.  
+- **Always bring your own ideas.** Let it support your thinking, not replace it. Treat it as scaffolding to get past mental blocks and identify blind spots. 
 
-- **Fact-check everything, especially research.** It’s powerful and fast, but not always accurate. Be ready to correct it and refine its output. Never take analysis as fact, just as another perspective.  
+- **Fact-check everything, especially research.** It’s powerful and fast, but not always accurate. Be to check sources and verify validity. Even the best models hallucinate. 
 
 - **Beware of perfection paralysis.** The temptation to over-optimize is real. Authenticity matters more. Once you have a solid draft or plan, act on it.  <br><br>
 
