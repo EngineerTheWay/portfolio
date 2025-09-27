@@ -1,13 +1,13 @@
 export const skills = [
     {
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,
-        title: "Digital Transformation",
-        description: "Modernizing systems and streamlining workflows with cloud and AI-driven solutions to reduce manual systems and scale smarter.",
+        title: "Workflow Modernization",
+        description: "Streamlining workflows with cloud-based and AI-driven solutions to reduce manual processes and improve efficiency.",
       },
       {
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 18H6a4 4 0 010-8 5 5 0 019.9-1.5A4.5 4.5 0 1119 18z"/></svg>`,
-        title: "Cloud Platforms",
-        description: "Certified in Azure, Microsoft 365, and Power Platform; building hands-on expertise in cloud adoption and enterprise integration.",
+        title: "Cloud Foundations",
+        description: "Actively developing hands-on skills with Azure, Microsoft 365, and Power Platform through certifications, labs, and projects.",
       },
       {
         icon: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,13 +21,13 @@ export const skills = [
   <path d="M34.2 22.8C35.1941 22.8 36 21.9941 36 21C36 20.0059 35.1941 19.2 34.2 19.2C33.2059 19.2 32.4 20.0059 32.4 21C32.4 21.9941 33.2059 22.8 34.2 22.8Z" fill="currentColor"/>
   <path d="M36 27C36 27.9941 35.1941 28.8 34.2 28.8C33.2059 28.8 32.4 27.9941 32.4 27C32.4 26.0059 33.2059 25.2 34.2 25.2C35.1941 25.2 36 26.0059 36 27Z" fill="currentColor"/>
 </svg>`,
-        title: "Cyber Intelligence",
-        description: "Applying cybersecurity fundamentals and intelligence-driven analysis to assess risks, secure systems, and deliver actionable insights.",
+        title: "Security Fundamentals",
+        description: "Applying cybersecurity fundamentals and cyber operations experience to identify risks, strengthen systems, and support security decisions.",
       },
       {
         icon: `<svg width="48" height="48" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M244.658 0H121.707a55.502 55.502 0 0 0 55.502 55.502h22.649V77.37c.02 30.625 24.841 55.447 55.466 55.467V10.666C255.324 4.777 250.55 0 244.658 0z"/><path d="M183.822 61.262H60.872c.019 30.625 24.84 55.447 55.466 55.467h22.649v21.938c.039 30.625 24.877 55.43 55.502 55.43V71.93c0-5.891-4.776-10.667-10.667-10.667z"/><path d="M122.951 122.489H0c0 30.653 24.85 55.502 55.502 55.502h22.72v21.867c.02 30.597 24.798 55.408 55.396 55.466V133.156c0-5.891-4.776-10.667-10.667-10.667z"/></svg>`,
-        title: "IT Project Management",
-        description: "Leading technology integration initiatives with Agile tools and methodologies, aligning people, systems, and strategy.",
+        title: "Agile Delivery",
+        description: "Using Agile methodologies and project tools to plan, track, and deliver technology initiatives with iterative progress."
       },
       {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -36,7 +36,7 @@ export const skills = [
   <polyline points="21 3 21 9 15 9"/>
 </svg>`,
         title: "Business Analysis",
-        description: "Translating business needs into technical solutions with stakeholder engagement, requirements mapping, and backlog management.",
+        description: "Leveraging business analysis skills to capture stakeholder needs, map requirements, and shape solutions that deliver value.",
       },
       {
         icon: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M40.4898 25.9933C41.9074 25.9933 42.5339 27.7781 41.4273 28.6641L31.9916 36.2196V39.5083C31.9916 41.9935 29.9769 44.0083 27.4916 44.0083H20.5009C18.0156 44.0083 16.0009 41.9935 16.0009 39.5083V36.2198L6.5617 28.6643C5.45489 27.7784 6.08134 25.9933 7.49906 25.9933H40.4898Z" fill="currentColor"/><path d="M17.5009 17.9991H30.4903C32.3266 17.9991 33.8327 19.4133 33.9787 21.212L33.9903 21.4991V23.9991H14.0009V21.4991C14.0009 19.6627 15.4151 18.1567 17.2138 18.0107L17.5009 17.9991Z" fill="currentColor"/><path d="M24.0009 4C27.3146 4 30.0009 6.68629 30.0009 10C30.0009 13.3137 27.3146 16 24.0009 16C20.6872 16 18.0009 13.3137 18.0009 10C18.0009 6.68629 20.6872 4 24.0009 4Z" fill="currentColor"/></svg>`,

@@ -19,16 +19,21 @@ I started with that foundation and then customized it to fit my needs, updating 
 - Simplified **header and footer**, keeping only GitHub and LinkedIn for a cleaner professional focus.  
 - A **brand-aligned color scheme and custom icons** to match my personal identity.  
 
-A full breakdown of all customizations can be found below. 
+A full breakdown of all customizations can be found below. <br><br>
 
----
+### 🚀 Deployment & Hosting  
+This portfolio is deployed on **Cloudflare Pages** for fast, secure edge delivery. The workflow is fully automated by Cloudflare:  
+- Source code is managed on **GitHub**.  
+- Cloudflare runs the **Astro build pipeline** on each push to `main` using wrangler.  
+- Final builds are cached and served worldwide via Cloudflare’s CDN. 
+
+This setup provides continuous deployment, reliable uptime, and quick iteration without manual redeploy steps.  
 
 ### <br> ✨ Branding & Design
-- Custom **brand-aligned dark theme** with accent gradients.
+- Customized dark and light themes with brand accurate accent gradients.
 - Added custom **SVG logos** for Power Automate, Excel, SharePoint, Jira, etc.
 - Integrated icons directly into **project cards** and **project detail pages**.
-- Improved **button spacing & margins** for aesthetics. 
-
+- Improved **button spacing & margins** for some aesthetic components.
 
 <br>
 
@@ -121,13 +126,13 @@ src/
 ├── assets/                     # Logos, icons, hero images
 │   └── logos/, icons/          # Added custom SVGs for tech stack
 ├── components/
+│   ├── BaseHead.astro          # MODIFIED: changed Opengraph image
 │   ├── badge/Badge.astro       # NEW: renders tech stack badges
 │   ├── button/Button.astro     # MODIFIED: supports size/variant system
 │   ├── ui/
 │   │   └── card/ProjectCard.astro   # NEW: custom card for projects
 │   └── sections/
 │       ├── Projects.astro           # NEW: grid renderer for project cards
-│       ├── ProjectHero.astro        # NEW: hero section for projects index
 │       ├── Header.astro             # MODIFIED: socials trimmed, LinkedIn added
 │       └── Footer.astro             # MODIFIED: socials trimmed
 ├── content/
@@ -142,10 +147,9 @@ src/
     ├── 404.astro               # MODIFIED: Added a "View Projects" button 
     ├── portfolio.astro         # ❌ REMOVED: removed as this was replaced with the slugified projects.
     ├── blog/
-    │   ├── index.astro
-    │   ├── [slug].astro
-    │   ├── category/[category].astro
-    │   └── page/[page].astro
+    │   ├── [slug].astro                # MODIFIED: added "← All Blog Posts" button
+    │   ├── category/[category].astro   # MODIFIED: added "← All Blog Posts" button
+    │   └── page/[page].astro           
     └── projects/
         ├── index.astro          # NEW: projects index page
         └── [slug].astro         # NEW: slug-based project detail pages
