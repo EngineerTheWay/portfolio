@@ -1,4 +1,4 @@
- ####This project was forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
+ #### This project was forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
 I started with guihubie's Astro template and expanded on that design, integrating a few new sections and and design elements:
 
