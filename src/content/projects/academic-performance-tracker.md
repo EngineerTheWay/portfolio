@@ -10,13 +10,13 @@ ctaText: "View Case Study →"
 ---
 
 ### 🎯 Problem
-When I first joined my team at DLI, I noticed an immediate pain point. Instructors were:
+When I first joined my team, I noticed an immediate pain point. Instructors were:
 - Inputting student grades by typing them into PowerPoint slides for biweekly reports.  
-- Manually color-coding passing vs. failing grades with **no standardization**.  
+- Manually color-coding passing vs. failing grades with no standardization.  
 - Producing inconsistent reports formats for each department and class.  
 - Manually typing grades into PDF reports for commanders, which was slow and error-prone.  
 
-While there was a database in place, the exported reports weren’t useful to the people doing the work or making decisions. For attrition purposes, leadership only needed to see performance on **major unit tests**, but the system buried that data alongside homework and minor grades.
+While there was a database in place, the exported reports weren’t useful to the people doing the work or making decisions. For attrition purposes, leadership only needed to see performance on major unit tests, but the system buried that data alongside homework and minor grades.
 
 There was also no centralized place for leadership to view current student statuses. Every department (and even each class) tracked progress differently.  <br><br>
 
@@ -28,11 +28,11 @@ Excel was chosen because it was already widely available, familiar to instructor
 The system included two core tools:  <br><br>
 
 #### 1. Schoolhouse Dashboard  
-- One workbook with **separate color-coded sheets for each department**.  
-- Built-in **navigation buttons** for quick switching during leadership meetings.  
+- One workbook with separate color-coded sheets for each department.  
+- Built-in navigation buttons for quick switching during leadership meetings.  
 - Instructors pasted raw grade exports, and the system auto-formatted results.  
-- **Conditional formatting** automatically flagged marginal and failing scores, ensuring consistency across all departments.  
-- A dropdown selector displayed each class’s current results for a particular test across the three testing modalities (**listening, reading, speaking**).  
+- Conditional formatting automatically flagged marginal and failing scores, ensuring consistency across all departments.  
+- A dropdown selector displayed each class’s current results for a particular test across the three testing modalities (listening, reading, speaking).  
 - Leadership could review all departments from one place, right from a Teams chat tab.  <br><br>
 
 > Thee dashboard used VLOOKUPs and a dropdown selection to match raw database outputs to student names and automatically pull the correct class data into the view.
@@ -41,9 +41,9 @@ The system included two core tools:  <br><br>
 
 #### 2. Class Reports  
 - Designed to display a consecutive view of the major milestones in the year-long course.  
-- **Conditional formatting** highlighted students meeting criteria for academic probation, special assistance, or attrition board review.  
-- Displayed performance trends in a **test-by-test format** needed to assess intervention criteria.  
-- Generated **individual student reports** with letter grades for each modality across all tests—commander-ready at a glance.  <br><br>
+- Conditional formatting highlighted students meeting criteria for academic probation, special assistance, or attrition board review.  
+- Displayed performance trends in a linear format needed to assess intervention criteria.  
+- Generated individual student reports with letter grades for each modality across all tests—commander-ready at a glance.  <br><br>
 
 > This reporting tool relied on the same modular VLOOKUP structure and design, taking raw test scores for each student and compiling them into standardized reports.
 
