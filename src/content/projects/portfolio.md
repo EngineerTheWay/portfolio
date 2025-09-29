@@ -1,6 +1,6 @@
 ---
 title: "Personal Portfolio & Blog"
-description: "A fully customized Astro-based portfolio & blog showcasing selected projects, professional insights, and case studies. Forked from guihubie."
+description: "A customized Astro-based portfolio & blog showcasing selected projects, professional insights, and case studies. Deployed with Cloudflare Pages."
 techStack:
   - HTML
   - CSS
@@ -12,12 +12,13 @@ sourceLink: "https://github.com/EngineerTheWay/portfolio"
 
 > This project was forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
-I started with guihubie's Astro template and expanded on that design, integrating a few new sections and and design elements:
+I took guihubie's Astro template and expanded on that design, integrating a few new sections and and design elements:
 
 - Projects section with slugged case study pages, tech stack badges, and optional source links
 - Blog system updates with navigation and pagination improvements
 - Clean header/footer with LinkedIn + GitHub + email only
 - Custom themes, icons, and color scheme aligned with my professional branding  <br><br>
+
 
 
 ### 🚀 Deployment & Hosting
@@ -35,6 +36,7 @@ I started with guihubie's Astro template and expanded on that design, integratin
 ### 📂 File Tree (Changes & Additions)
 ```bash
 src/
+├── content.config.ts           # MODIFIED: added projects collection schema
 ├── assets/                     
 │   └── icons/                  # Added custom SVGs for tech stack
 ├── components/
@@ -55,6 +57,10 @@ src/
 ├── layouts/
 │   ├── BlogPost.astro          # MODIFIED: added "← All Blog Posts" button
 │   └── ProjectsPost.astro      # NEW: layout for project detail pages
+└── styles/
+│   └── themes/       
+│       ├── dark.css            # MODIFIED: Changed accent for dark theme
+    │   └── light.css           # MODIFIED: Changed accent for light theme
 └── pages/
     ├── 404.astro               # MODIFIED: Added a "View Projects" button 
     ├── portfolio.astro         # ❌ REMOVED: removed as this was replaced with the slugified projects.
@@ -66,5 +72,5 @@ src/
         ├── index.astro          # NEW: projects index page
         └── [slug].astro         # NEW: slug-based project detail pages
 
-content.config.ts                # MODIFIED: added projects collection schema
+
 ```

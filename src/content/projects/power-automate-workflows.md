@@ -1,6 +1,6 @@
 ---
-title: "Power Automate Workflows"
-description: "Built automated systems for training compliance, leave requests, and performance reporting—reducing manual workload and modernizing workflows in a high-tempo military training environment."
+title: "Business Process Automation"
+description: "Designed workflow automation with Power Platform and Microsoft 365, replacing manual processes for onboarding, leave requests, and training compliance."
 techStack:
   - Power Platform
   - Power Automate
@@ -35,10 +35,12 @@ Onboarding dozens of new students and staff required manually sending multiple e
 
 > **Tools**: Power Automate, SharePoint, Microsoft Teams
 
-![Mission Driven](../../assets/images/projects/PowerAutomate1.png)
+
 
 <details>
 <summary><h4>⚙️ Technical Note: Handling Attachments</h4></summary>
+
+![Mission Driven](../../assets/images/projects/PowerAutomate1.png)
 
 Initially, I struggled to figure out how to send multiple attachments dynamically in automated emails.  
 
@@ -67,8 +69,18 @@ Students submitted dozens of class absence requests daily via email/teams, comin
 - Brought average response times from days to minutes for some requests, with all requests answered within 24 hours. <br><br>
 
  > **Tools**: Power Automate, SharePoint, Microsoft Teams
+ 
+ <details>
+<summary><h4>⚙️ Screenshot: Example message to students</h4></summary>
 
 ![Mission Driven](../../assets/images/projects/PowerAutomate2.png)
+
+When the student's absence request status changed (approved, denied, needed more info), an email and teams message was sent directly to the student and the required approving parties, reducing inbox clutter and speeding response times. The messages were tailored to the student vs faculty view.
+
+</details> 
+<br>
+
+
 
 ---
 <br>
