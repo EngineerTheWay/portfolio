@@ -1,30 +1,27 @@
 ---
-title: "Personal Portfolio & Blog"
+title: "Professional Portfolio"
 description: "A customized Astro-based portfolio & blog showcasing selected projects, professional insights, and case studies. Deployed with Cloudflare Pages."
 techStack:
   - HTML
   - CSS
-  - Astro
-icon: ../../assets/logos/Astro-logo.svg
+  - Cloudflare
+icon: ../../assets/icons/cloudflare.svg
 ctaText: "Documentation →"
 sourceLink: "https://github.com/EngineerTheWay/portfolio"
 ---
 
 > This project was forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
-I took guihubie's Astro template and expanded on that design, integrating a few new sections and and design elements:
+This desing took guihubie's template and expanded on it, integrating a few new sections and and design elements:
 
 - Projects section with slugged case study pages, tech stack badges, and optional source links
 - Blog system updates with navigation and pagination improvements
 - Clean header/footer with LinkedIn + GitHub + email only
 - Custom themes, icons, and color scheme aligned with my professional branding  <br><br>
 
-
-
 ### 🚀 Deployment & Hosting
 - Deployed to **Cloudflare Pages** with GitHub integration  
-- Automated builds on each push to `main`  
-- Global CDN caching for fast updates and reliable uptime  <br><br>
+- Automated builds on each push to `main`   <br><br>
 
 ### 💼 Key Repo Changes
 - New `projects` collection and long-form case study layout  

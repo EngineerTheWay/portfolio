@@ -1,6 +1,6 @@
 ---
-title: "Business Process Automation"
-description: "Designed workflow automation with Power Platform and Microsoft 365, replacing manual processes for onboarding, leave requests, and training compliance."
+title: "Workflow Automations"
+description: "Designed workflow automations with Power Platform and Microsoft 365, replacing manual processes across numerous military training organizations."
 techStack:
   - Power Platform
   - Power Automate
