@@ -12,7 +12,7 @@ sourceLink: "https://github.com/EngineerTheWay/portfolio"
 
 > This project was forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
-This desing took guihubie's template and expanded on it, integrating a few new sections and and design elements:
+My portfolio built on the forked template by integrating new sections and design elements:
 
 - Projects section with slugged case study pages, tech stack badges, and optional source links
 - Blog system updates with navigation and pagination improvements
