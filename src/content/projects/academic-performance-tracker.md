@@ -21,9 +21,9 @@ While there was a database in place, the exported reports weren’t useful. For 
 There was also no centralized place for leadership to view current student statuses. Every department (and even each class) tracked progress differently.  <br><br>
 
 ### 💡 Solution
-I worked with our team to design an Excel dashboard, transforming raw database outputs into standardized, centralized reports with automated conditional formatting.  This helped improve coordination both internally and with external shareholders such as service units.
+I worked with our team to design an Excel dashboard, transforming raw database outputs into standardized, centralized reports with automated conditional formatting.  This helped improve coordination both internally and with external stakeholders such as service units.
 
-Excel was chosen because it was already widely available, familiar to instructors, and quick to deploy without new licensing or training. By leveraging modular formulas and conditional formatting, the tool delivered immediate value at a low cost as the insitute worked on larger LMS overhauls.
+Excel was chosen because it was already widely available, familiar to instructors, and quick to deploy without new licensing or training. By leveraging modular formulas and conditional formatting, the tool delivered immediate value at a low cost as the institute worked on larger LMS overhauls.
 
 The system included two core tools:  <br><br>
 
@@ -50,11 +50,16 @@ The system included two core tools:  <br><br>
 <br>
 
 ### 🚀 Impact
-- **Eliminated manual grade entry** into PowerPoints, memos, and slides.  
-- **Standardized reporting** across the entire schoolhouse.  
-- Made performance data **more accessible** using SharePoint and a Teams chat tab. 
-- Dramatically improved speed of scheduling academic intervention and attrition boards.  
-- The **modular, navigable design with conditional formatting** made it adaptable to multiple departments and curriculums. <br><br>
+#### ⏱️ Time Savings
+- Eliminated manual grade entry into PowerPoints and individual excel sheets
+   
+#### 📊 Standardization
+- Created consistent reporting format across the entire schoolhouse
+- Made performance data accessible via SharePoint and Teams
+   
+#### 🎯 Decision-Making
+- Dramatically improved speed of academic intervention and attrition board scheduling
+- Modular design allowed adaptation across multiple departments and curriculums <br><br>
 
 ### 📸 Screenshots  <br>
 
@@ -77,6 +82,3 @@ This view was used to show a summary of an individual class' most recent test. I
 #### 👤 Individual Student Report  
 Report that the tool generated for commanders, displaying a student's grades across all unit tests and modalities.  
 ![Individual Student Report](../../assets/images/projects/student-report.jpeg)<br><br>
-
-### 📌 Key Takeaways
-This project replaced manual processes with a centralized, modular system that gave leadership clearer visibility into student performance, streamlined interventions, and influenced updates to academic reporting practices across the institute.
