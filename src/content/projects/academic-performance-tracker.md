@@ -81,4 +81,4 @@ This view was used to show a summary of an individual class' most recent test. I
 
 #### 👤 Individual Student Report  
 Report that the tool generated for commanders, displaying a student's grades across all unit tests and modalities.  
-![Individual Student Report](../../assets/images/projects/student-report.jpeg)<br><br>
+![Individual Student Report](../../assets/images/projects/student-report.jpeg)
