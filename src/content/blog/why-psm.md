@@ -39,6 +39,8 @@ These helped me connect the theory of Scrum with real-world workflows.  <br><br>
 
 > **Tip:** If you miss practice test questions, always go back to the Scrum Guide. The answers are right there.  
 
+<br>
+
 ### Final Thoughts  
 
 Scrum isn’t just for software. It’s a way of approaching complex work in any environment. For me, PSM I validated the agile practices I’d already been using **and** gave me a credential that bridges my military background with the civilian industry.  

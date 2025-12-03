@@ -1,63 +1,62 @@
- #### This project was forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
+> Forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
-I started with guihubie's Astro template and expanded on that design, integrating a few new sections and and design elements:
+A customized Astro portfolio and blog designed to highlight case studies, professional insights, and ongoing projects. It includes new content types, updated layouts, refined navigation, and a simplified overall look aligned with my professional brand.
 
-- Projects section with slugged case study pages, tech stack badges, and optional source links
-- Blog system updates with navigation and pagination improvements
-- Clean header/footer with LinkedIn + GitHub + email only
-- Custom themes, icons, and color scheme aligned with my professional branding  <br><br>
+### ✨ Highlights  
+- Projects hub with slug-based case studies, tech-stack badges, and optional repo links  
+- Improved blog system with cleaner navigation + pagination  
+- Minimal header/footer featuring only LinkedIn, GitHub, and email  
+- Updated themes, icons, and color palette to match personal branding  <br>
 
----
+### 🚀 Deployment  
+- Hosted on **Cloudflare Pages**  
+- Automated builds triggered from GitHub `main`  <br>
 
-### 🚀 Deployment & Hosting
-- Deployed to **Cloudflare Pages** with GitHub integration  
-- Automated builds on each push to `main`  
-- Global CDN caching for fast updates and reliable uptime  <br><br>
-
----
-
-### 💼 Key Repo Changes
-- New `projects` collection and long-form case study layout  
-- Custom `ProjectCard` grid for the projects index  
-- Blog layouts updated with “← All Blog Posts” navigation  
-- Trimmed header/footer for a simpler professional look  
-- Added custom SVGs for tool logos (Excel, SharePoint, Power Automate, Jira, etc.)  <br><br>
-
----
+### 💼 Key Updates  
+- New `projects` content collection with long-form case study layout  
+- Custom `ProjectCard` system for the projects index  
+- Blog post layouts updated with consistent “← All Blog Posts” navigation  
+- Streamlined global header and footer  
+- Added custom SVG icons for tools like Azure, M365, Excel, SharePoint, Power Automate, Jira, etc <br>
 
 ### 📂 File Tree (Changes & Additions)
 ```bash
 src/
-├── assets/                     
-│   └── icons/                  # Added custom SVGs for tech stack
+├── content.config.ts                 # Added projects collection + schema updates
+├── assets/
+│   └── icons/                        # Custom SVGs for tech/tool badges
 ├── components/
-│   ├── BaseHead.astro          # MODIFIED: changed Opengraph image
-│   ├── badge/Badge.astro       # NEW: renders tech stack badges
-│   ├── button/Button.astro     # MODIFIED: supports size/variant system
+│   ├── BaseHead.astro                # Updated OpenGraph image
+│   ├── badge/Badge.astro             # New tech badge component
+│   ├── button/Button.astro           # Extended with size/variant props
 │   ├── ui/
-│   │   └── card/ProjectCard.astro   # NEW: custom card for projects
+│   │   └── card/ProjectCard.astro    # New project card layout
 │   └── sections/
-│       ├── Projects.astro           # NEW: grid renderer for project cards
-│       ├── Header.astro             # MODIFIED: socials trimmed
-│       └── Footer.astro             # MODIFIED: socials trimmed
+│       ├── Projects.astro            # New projects grid section
+│       ├── Header.astro              # Trimmed to core socials
+│       └── Footer.astro              # Trimmed + simplified
 ├── content/
-│   ├── blog/                   # Existing blog posts
-│   └── projects/               # NEW: project case studies (Markdown/MDX)
+│   ├── blog/                         # Existing posts
+│   └── projects/                     # New case studies (MD/MDX)
 ├── data/
-│   └── projects.ts             # ❌ REMOVED: removed as this was replaced with the slugified projects.
+│   └── projects.ts                   # Removed (replaced by content collection)
 ├── layouts/
-│   ├── BlogPost.astro          # MODIFIED: added "← All Blog Posts" button
-│   └── ProjectsPost.astro      # NEW: layout for project detail pages
+│   ├── BlogPost.astro                # Added “← All Blog Posts” nav
+│   └── ProjectsPost.astro            # New layout for case studies
+└── styles/
+    └── themes/
+        ├── dark.css                  # Updated accent colors
+        └── light.css                 # Updated accent colors
 └── pages/
-    ├── 404.astro               # MODIFIED: Added a "View Projects" button 
-    ├── portfolio.astro         # ❌ REMOVED: removed as this was replaced with the slugified projects.
+    ├── 404.astro                     # Added “View Projects” button
+    ├── portfolio.astro               # Removed (superseded by slug-based pages)
     ├── blog/
-    │   ├── [slug].astro                # MODIFIED: added "← All Blog Posts" button
-    │   ├── category/[category].astro   # MODIFIED: added "← All Blog Posts" button
-    │   └── page/[page].astro           
+    │   ├── [slug].astro              # Added consistent back-navigation
+    │   ├── category/[category].astro # Same navigation update
+    │   └── page/[page].astro
     └── projects/
-        ├── index.astro          # NEW: projects index page
-        └── [slug].astro         # NEW: slug-based project detail pages
+        ├── index.astro               # Projects index
+        └── [slug].astro              # Individual project pages
 
-content.config.ts                # MODIFIED: added projects collection schema
+
 ```
