@@ -17,7 +17,7 @@ export const skills = [
   <path d="M36 27C36 27.9941 35.1941 28.8 34.2 28.8C33.2059 28.8 32.4 27.9941 32.4 27C32.4 26.0059 33.2059 25.2 34.2 25.2C35.1941 25.2 36 26.0059 36 27Z" fill="currentColor"/>
 </svg>`,
         title: "Enterprise Cybersecurity",
-        description: "Leveraging cybersecurity frameworks and intelligence operations background to identify threats, evaluate security posture, and enhance enterprise systems.",
+        description: "Leveraging cybersecurity frameworks to identify threats, evaluate security posture, and enhance enterprise systems.",
       },
       {
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,
