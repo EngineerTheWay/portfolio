@@ -10,9 +10,9 @@ ctaText: "Documentation →"
 sourceLink: "https://github.com/EngineerTheWay/portfolio"
 ---
 
-> Based on [guihubie’s Astro template](https://github.com/guihubie/free-astro-template), extended with new layouts, sections, and branding.
+> Forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
-A custom-built Astro portfolio and blog designed to highlight case studies, technical insights, and ongoing projects. It includes new content types, updated layouts, refined navigation, and a simplified overall look aligned with my professional brand.
+A customized Astro portfolio and blog designed to highlight case studies, professional insights, and ongoing projects. It includes new content types, updated layouts, refined navigation, and a simplified overall look aligned with my professional brand.
 
 ### ✨ Highlights  
 - Projects hub with slug-based case studies, tech-stack badges, and optional repo links  
