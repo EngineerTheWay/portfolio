@@ -1,13 +1,8 @@
 export const skills = [
     {
-        icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,
-        title: "Workflow Modernization",
-        description: "Streamlining workflows with cloud-based and AI-driven solutions to reduce manual processes and improve efficiency.",
-      },
-      {
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 18H6a4 4 0 010-8 5 5 0 019.9-1.5A4.5 4.5 0 1119 18z"/></svg>`,
-        title: "Cloud Foundations",
-        description: "Actively developing hands-on skills with Azure, Microsoft 365, and Power Platform through certifications, labs, and projects.",
+        title: "Cloud Infrastructure",
+        description: "Building and managing cloud solutions on Azure, Microsoft 365, and Power Platform, from infrastructure deployment to business applications.",
       },
       {
         icon: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,13 +16,18 @@ export const skills = [
   <path d="M34.2 22.8C35.1941 22.8 36 21.9941 36 21C36 20.0059 35.1941 19.2 34.2 19.2C33.2059 19.2 32.4 20.0059 32.4 21C32.4 21.9941 33.2059 22.8 34.2 22.8Z" fill="currentColor"/>
   <path d="M36 27C36 27.9941 35.1941 28.8 34.2 28.8C33.2059 28.8 32.4 27.9941 32.4 27C32.4 26.0059 33.2059 25.2 34.2 25.2C35.1941 25.2 36 26.0059 36 27Z" fill="currentColor"/>
 </svg>`,
-        title: "Security Fundamentals",
-        description: "Applying cybersecurity fundamentals and cyber operations experience to identify risks, strengthen systems, and support security decisions.",
+        title: "Enterprise Cybersecurity",
+        description: "Leveraging cybersecurity frameworks and intelligence operations background to identify threats, evaluate security posture, and enhance enterprise systems.",
+      },
+      {
+        icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,
+        title: "Workflow Automation",
+        description: "Transforming manual processes into automated workflows that reduce errors, save time, and enable teams to focus on high-value work.",
       },
       {
         icon: `<svg width="48" height="48" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M244.658 0H121.707a55.502 55.502 0 0 0 55.502 55.502h22.649V77.37c.02 30.625 24.841 55.447 55.466 55.467V10.666C255.324 4.777 250.55 0 244.658 0z"/><path d="M183.822 61.262H60.872c.019 30.625 24.84 55.447 55.466 55.467h22.649v21.938c.039 30.625 24.877 55.43 55.502 55.43V71.93c0-5.891-4.776-10.667-10.667-10.667z"/><path d="M122.951 122.489H0c0 30.653 24.85 55.502 55.502 55.502h22.72v21.867c.02 30.597 24.798 55.408 55.396 55.466V133.156c0-5.891-4.776-10.667-10.667-10.667z"/></svg>`,
         title: "Agile Delivery",
-        description: "Using Agile methodologies and project tools to plan, track, and deliver technology initiatives with iterative progress."
+        description: "Managing technology projects using Agile methodologies to drive iterative delivery, stakeholder alignment, and measurable outcomes."
       },
       {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -46,4 +46,3 @@ export const skills = [
 ];
 
 export type Skill = (typeof skills)[number];
-
