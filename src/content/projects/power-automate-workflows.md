@@ -18,37 +18,37 @@ A selection of systems I've built using Microsoft Power Platform to streamline w
 
 <br>
 
-## Student Status & Administrative Actions Automation
+## Administrative Actions SharePoint Automation
 
-**Problem**  
-Multiple SharePoint lists tracked students who were undergoing administrative review or being removed from training for academic, disciplinary, or emergency reasons. These processes were disconnected and required:
+### Problem
+Multiple SharePoint lists tracked students undergoing administrative review or being removed from training for academic, disciplinary, or emergency reasons. These processes were disconnected and required:
 
 - Manually recreating entries in a second list after decisions were made  
 - Re-entering the same data multiple times  
 - Tracking follow-up tasks in spreadsheets or email chains  
-- Sharing updates through emailed Excel files that became outdated instantly  
+- Sharing updates through emailed Excel files that became outdated immediately  
 
 This created real risk: students could be mis-tracked, steps could be missed, and leadership lacked visibility.
 
-**Solution**  
+### Solution
 I standardized both SharePoint lists and built an automated workflow that connected the entire review → status change pipeline:
 
 - When a decision was recorded, the automation:  
   - Archived the review record  
-  - Automatically generated a new “not in training” record with the correct details  
+  - Generated a new “not in training” record with the correct details  
 - Created a checklist of all required follow-up actions (emails, system updates, coordination steps)  
-- Sent Teams messages + email receipts to the responsible teams each time a required step was completed  
-- Allowed staff and leadership to view all student statuses directly in SharePoint, in real time  
+- Sent automated Teams messages + email receipts to the responsible teams each time a required step was completed  
+- Enabled staff and leadership to view all student statuses directly in SharePoint, in real time  
 - Eliminated the need for emailed spreadsheets entirely  
 
-**Impact**  
-- Reached **100% compliance** in tracking students temporarily removed from training  
+### Impact
+- Achieved **100% compliance** in tracking students removed from training  
 - Prevented lost cases and ensured every required action was completed  
 - Reduced administrative workload by eliminating duplicate data entry  
-- Gave instructors, managers, and senior leaders real-time visibility  
+- Improved oversight for instructors, managers, and senior leaders  
 - Removed reliance on manual Excel trackers  
 
-> **Tools:** Power Automate, SharePoint, Microsoft Planner, Microsoft Teams, Outlook
+> **Tools:** Power Automate, SharePoint, Microsoft Planner, Microsoft Teams
 
 <br>
 
@@ -58,19 +58,19 @@ I standardized both SharePoint lists and built an automated workflow that connec
 
 ## Annual Training Compliance System  
 
-**Problem**  
-Annual training records were tracked manually in Excel by one manager. Reminders, updates, and certificate logging consumed 5+ hours weekly and leadership lacked real-time visibility.
+### Problem
+Annual training requirements were tracked manually in Excel by one manager. Updating records, sending reminders, and logging certificates consumed 5+ hours weekly and offered little real-time visibility for leadership.
 
-**Solution**  
+### Solution
 - Built an automated SharePoint + Power Automate system running weekly compliance checks  
-- Sent personalized emails listing upcoming or overdue trainings  
+- Auto-sent personalized emails listing upcoming or overdue trainings  
 - Added Power BI dashboards showing compliance rates and outstanding requirements  
-- Enabled members to upload certificates directly for automated logging  
+- Enabled members to upload certificates directly for automatic logging  
 
-**Impact**  
+### Impact
 - Saved 5+ hours weekly in administrative workload  
-- Delivered real-time visibility for leadership  
-- Increased compliance through proactive communication  
+- Delivered real-time compliance dashboards for leadership  
+- Increased training completion rates through proactive reminders  
 
 > **Tools:** Power Automate, SharePoint, Power BI
 
@@ -82,20 +82,20 @@ Annual training records were tracked manually in Excel by one manager. Reminders
 
 ## Leave & Absence Tracker  
 
-**Problem**  
+### Problem
 Students submitted dozens of absence requests daily across email and Teams messages. Requests were lost in inboxes, approval loops were slow, and irrelevant personnel were frequently copied.
 
-**Solution**  
+### Solution
 - Designed an automated workflow that routed requests only to the correct approvers  
 - Enabled Teams + email notifications for visibility  
 - Centralized approvals and status tracking in SharePoint  
 
-**Impact**  
+### Impact
 - Reduced inbox clutter by hundreds of messages monthly  
 - Saved ~20 hours per week across three teams  
 - Reduced response times from days to minutes  
 
-> **Tools:** Power Automate, SharePoint, Microsoft Teams, Outlook
+> **Tools:** Power Automate, SharePoint, Microsoft Teams
 
 <br>
 
@@ -105,21 +105,21 @@ Students submitted dozens of absence requests daily across email and Teams messa
 
 ## Onboarding Automation 
 
-**Problem**  
+### Problem
 Onboarding dozens of students and staff required manually sending multiple emails with dates, links, attachments, and IT requests. This led to missed details and inconsistent communication.
 
-**Solution**  
+### Solution
 - Built a Power Automate flow triggered from SharePoint  
 - Sent tailored onboarding emails using over two dozen SharePoint fields  
 - Attached branch- or program-specific documents automatically  
 - Sent provisioning requests to IT and updated onboarding status fields  
 
-**Impact**  
+### Impact
 - Standardized onboarding across departments  
 - Eliminated dozens of manual emails per onboarding cycle  
 - Ensured attachments and IT requests were never missed  
 
-> **Tools:** Power Automate, SharePoint, Microsoft Teams, Outlook
+> **Tools:** Power Automate, SharePoint, Microsoft Teams
 
 <br>
 
@@ -129,15 +129,15 @@ Onboarding dozens of students and staff required manually sending multiple email
 
 ## Dorm Inspection System  
 
-**Problem**  
+### Problem
 Dorm inspections for several hundred airmen were completed on paper, requiring hours of manual collation and delaying identification of issues.
 
-**Solution**  
+### Solution
 - Rebuilt inspection forms in Microsoft Forms  
 - Automated compilation of results into a timestamped Excel report  
 - Sent automated Teams + email notifications to inspection teams  
 
-**Impact**  
+### Impact
 - Eliminated manual data entry  
 - Identified issues faster  
 - Streamlined weekly inspections across several hundred personnel  
