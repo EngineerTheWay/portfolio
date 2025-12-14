@@ -8,7 +8,11 @@ import HeroSection from "../../components/sections/HeroSection.astro";
 import GlowLineSeparator from "../../components/ui/separator/GlowLineSeparator.astro";
 import ArrowSeparator from "../../components/ui/separator/ArrowSeparator.astro";
 
-const projects = await getCollection("projects");
+const projects = (await getCollection("projects")).sort((a, b) => {
+  const pA = a.data.priority ?? 999;
+  const pB = b.data.priority ?? 999;
+  return pA - pB;
+});
 ---
 
 <html lang="en" data-theme="dark" class="dark">
@@ -18,7 +22,7 @@ const projects = await getCollection("projects");
   <body>
     <Header />
     <main>
-      <HeroSection title="Selected Projects" subtitle="Case studies & source code." />
+      <HeroSection title="Featured Projects" subtitle="Case studies & source code." />
             <ArrowSeparator />
             <Projects projects={projects} />
       <GlowLineSeparator />

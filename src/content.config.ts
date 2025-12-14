@@ -30,6 +30,7 @@ const projects = defineCollection({
       icon: image().optional(),
       ctaText: z.string().optional(),
       sourceLink: z.string().optional(),
+      priority: z.number().optional(),
     }),
 });
 

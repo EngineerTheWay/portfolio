@@ -5,15 +5,9 @@ techStack:
   - Power Platform
   - Power Automate
   - Microsoft 365
+priority: 5
 icon: ../../assets/logos/Power_Automate.svg
 ctaText: "View Case Study →"
----
-
-# Projects
-
-A selection of systems I've built using Microsoft Power Platform to streamline workflows, reduce manual workload, and improve organizational compliance and visibility.
-<br>
-
 ---
 
 <br>

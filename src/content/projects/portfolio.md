@@ -5,6 +5,7 @@ techStack:
   - HTML
   - CSS
   - Cloudflare
+priority: 10
 icon: ../../assets/icons/cloudflare.svg
 ctaText: "Documentation →"
 sourceLink: "https://github.com/EngineerTheWay/portfolio"

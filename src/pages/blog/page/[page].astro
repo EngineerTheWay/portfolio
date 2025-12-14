@@ -36,7 +36,7 @@ const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
   </head>
   <body>
     <Header />
-    <BlogHero title="Blog" subtitle="Stories, notes, and learnings." />
+    <BlogHero title="Blog" subtitle="My personal blog and professional insights." />
     <main class="mx-auto max-w-6xl px-4 py-8 space-y-10">
       <BlogAllArticles posts={pagePosts} />
       <BlogPagination currentPage={currentPage} totalPages={totalPages} />

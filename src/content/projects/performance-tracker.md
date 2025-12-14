@@ -5,6 +5,7 @@ techStack:
   - Excel
   - SharePoint
   - Microsoft 365
+priority: 9
 icon: ../../assets/icons/Excel-icon.svg
 ctaText: "View Case Study →"
 ---
