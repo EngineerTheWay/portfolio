@@ -1,8 +1,8 @@
 export const skills = [
     {
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 18H6a4 4 0 010-8 5 5 0 019.9-1.5A4.5 4.5 0 1119 18z"/></svg>`,
-        title: "Cloud Infrastructure",
-        description: "Building and managing cloud solutions on Azure, Microsoft 365, and Power Platform, from infrastructure deployment to business applications.",
+        title: "Cloud Platforms",
+        description: "Working across Azure, Microsoft 365, and Power Platform to support cloud services, automation, and business applications.",
       },
       {
         icon: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,8 +16,8 @@ export const skills = [
   <path d="M34.2 22.8C35.1941 22.8 36 21.9941 36 21C36 20.0059 35.1941 19.2 34.2 19.2C33.2059 19.2 32.4 20.0059 32.4 21C32.4 21.9941 33.2059 22.8 34.2 22.8Z" fill="currentColor"/>
   <path d="M36 27C36 27.9941 35.1941 28.8 34.2 28.8C33.2059 28.8 32.4 27.9941 32.4 27C32.4 26.0059 33.2059 25.2 34.2 25.2C35.1941 25.2 36 26.0059 36 27Z" fill="currentColor"/>
 </svg>`,
-        title: "Enterprise Cybersecurity",
-        description: "Leveraging cybersecurity frameworks to identify threats, evaluate security posture, and enhance enterprise systems.",
+        title: "Enterprise Security",
+        description: "Applying security frameworks and best practices to assess risk, strengthen security posture, and support secure enterprise platforms and systems.",
       },
       {
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,

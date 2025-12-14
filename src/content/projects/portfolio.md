@@ -9,10 +9,17 @@ icon: ../../assets/icons/cloudflare.svg
 ctaText: "Documentation →"
 sourceLink: "https://github.com/EngineerTheWay/portfolio"
 ---
-
 > Forked from [guihubie’s Astro template](https://github.com/guihubie/free-astro-template).
 
-A customized Astro portfolio and blog designed to highlight case studies, professional insights, and ongoing projects. It includes new content types, updated layouts, refined navigation, and a simplified overall look aligned with my professional brand.
+A customized Astro portfolio and blog designed to highlight case studies, professional insights, and ongoing projects. It includes new content types, updated layouts, refined navigation, and a simplified overall look aligned with my professional brand. 
+
+**Purpose:** Built to present long-form, real-world automation and platform case studies in a clean, skimmable format.
+
+<br>
+
+---
+
+<br>
 
 ### ✨ Highlights  
 - Projects hub with slug-based case studies, tech-stack badges, and optional repo links  
@@ -29,10 +36,14 @@ A customized Astro portfolio and blog designed to highlight case studies, profes
 - Custom `ProjectCard` system for the projects index  
 - Blog post layouts updated with consistent “← All Blog Posts” navigation  
 - Streamlined global header and footer  
-- Added custom SVG icons for tools like Azure, M365, Excel, SharePoint, Power Automate, Jira, etc <br><br> 
+- Added custom SVG icons for tools like Azure, M365, Excel, SharePoint, Power Automate, Jira, etc.
 
-### 📂 File Tree (Changes & Additions)
-```bash
+<br>
+
+<details>
+<summary>📂 File Tree (Changes & Additions)</summary>
+
+``` bash
 src/
 ├── content.config.ts                 # Added projects collection + schema updates
 ├── assets/
@@ -72,3 +83,5 @@ src/
 
 
 ```
+
+<details>
