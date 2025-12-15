@@ -1,6 +1,6 @@
 ---
 title: 'Scrum in Action: Earning PSM I'
-description: 'Bridging military-tested agility experience with Scrum.'
+description: 'Bridging military-tested agile experience with Scrum.'
 pubDate: 'Jun 05 2025'
 heroImage: '../../assets/images/PSM.jpg'
 category: 'Showcase'
