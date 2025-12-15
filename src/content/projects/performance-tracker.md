@@ -1,5 +1,5 @@
 ---
-title: "Academic Performance Reporting Tools"
+title: "Academic Reporting Tools"
 description: "Developed modular Excel tools that centralized grade tracking, highlighted at-risk students, and standardized academic reporting across the schoolhouse."
 techStack:
   - Excel

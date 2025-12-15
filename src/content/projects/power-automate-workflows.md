@@ -1,6 +1,6 @@
 ---
-title: "Workflow Automations"
-description: "Designed workflow automations with Power Platform and Microsoft 365, replacing manual processes across numerous military training organizations."
+title: "Workflow Modernizations"
+description: "Designed modernized workflows with Power Platform and Microsoft 365, replacing manual processes across numerous military training organizations."
 techStack:
   - Power Platform
   - Power Automate

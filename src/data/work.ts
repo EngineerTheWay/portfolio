@@ -11,7 +11,7 @@ export const workIcons = {
 
 export const work = [
     {
-      title: "Training Program Manager",
+      title: "Academic Program Manager",
       company: "Defense Language Institute",
       region: "Monterey, CA",
       description:
@@ -29,7 +29,7 @@ export const work = [
       company: "Defense Language Institute — Washington",
       region: "Washington, D.C.",
       description:
-        "Oversaw a $17M training program across three campuses during a leadership vacancy, restoring continuity and student support. Introduced workflow automations with Microsoft 365 and Power Platform that streamlined reporting and reduced manual administrative processes.",
+        "Supported oversight of a $17M training program across three campuses during a leadership vacancy, restoring continuity and student support. Introduced workflow automations with Microsoft 365 and Power Platform that streamlined reporting and reduced manual administrative processes.",
       technologies: [
         "Workflow Automation",
         "Process Improvement",

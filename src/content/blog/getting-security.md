@@ -1,6 +1,6 @@
 ---
-title: 'Security+: Certifying Cyber Foundations'
-description: 'How I earned Security+ and the approach that helped me get there.'
+title: 'Formalizing Security Foundations'
+description: 'Why I pursued Security+ as a baseline credential.'
 pubDate: 'Sep 24 2025'
 heroImage: '../../assets/images/security.jpg'
 category: 'Showcase'
@@ -10,35 +10,33 @@ tags: ['IT', 'cybersecurity', 'CompTIA']
 
 ### Why Security+ Mattered for Me
 
-As I transitioned out of the military, I wanted a credential that tied together my background in IT fundamentals, cyber operations, hands-on tool use, and graduate-level security coursework. Security+ was the cleanest way to translate that experience into something the civilian world immediately recognizes and to establish a solid foundation for more advanced study.
+As I transitioned out of the military, I wanted a credential that could translate my background in IT fundamentals, cyber operations, and graduate-level security coursework into something the civilian world immediately recognizes. Security+ fit that role cleanly. It provided a widely understood baseline while reinforcing the foundation I had already been working from.
 
-The certification forced me to formalize core concepts I’d already encountered operationally or academically, including networking, risk, identity and access models, cryptography, and incident response. These were areas I had used in practice but never needed to define in a formal exam. <br><br>
+The value of Security+ wasn’t that the material was entirely new. Most of the domains were concepts I had encountered academically or applied operationally in the military. What the certification did force was precision. It required me to formalize ideas I had previously used intuitively and to understand where terminology, models, and frameworks meaningfully differ.
 
-### What I Focused On
+In that sense, Security+ served less as a starting point and more as a translation layer: a way to align prior experience with the language and expectations of the broader industry. <br><br>
 
-Even with prior experience, several areas required deliberate review:
+### Where I Focused My Attention
 
-- **Acronyms & frameworks** — NIST, ISO, HIPAA, SLAs, MOUs, CASB, AAA  
-- **Ports & protocols** — non-obvious ones like Kerberos (88), TACACS+ (49), and SNMP (161/162)  
-- **Identity & authentication models** — MAC, DAC, RBAC, ABAC; SAML vs. OAuth; Zero Trust components  
-- **Risk & response** — ALE/SLE/ARO, incident response phases, BCP vs. DRP  
-- **Attack types** — injection attacks, XSS vs. CSRF, password attacks, and wireless attack categories  
-- **Cryptography & PKI** — symmetric vs. asymmetric crypto, PKI workflows, hashing, WPA3, and Diffie-Hellman  
+With that goal in mind, my preparation centered on areas where nuance matters more than familiarity:
 
-**TL;DR:** terminology and nuance. The exam rewards precision across foundational concepts.<br><br>
+- **Frameworks and terminology** — translating operational concepts into standardized language (NIST, ISO, HIPAA, CASB, AAA)  
+- **Identity and access models** — understanding where models like RBAC, ABAC, and Zero Trust diverge in theory and application  
+- **Risk and response concepts** — clarifying distinctions such as BCP vs. DRP and formal incident response phases  
+- **Protocols and cryptography** — reinforcing details that are easy to gloss over in day-to-day work  
 
-### How I Prepared
+The common thread across these areas was accuracy. Security+ rewarded clarity and precision across foundational concepts. <br><br>
 
-I kept my approach focused and practical:
+### How I Approached Preparation
 
-- **ChatGPT** — targeted clarification for concepts that needed reinforcement  
-- **Florida Tech coursework** — *Secure Networks & Communication* and *Host-Based Security* aligned closely with exam content, especially technical topics like buffer flows and polymorphic malware  
-- **Jason Dion’s Udemy course** — strong reinforcement of encryption standards, hashing, and Zero Trust Architecture  
-- **Anki** — cloze cards for ports and protocols that weren’t already muscle memory  
-- **Pocket Prep** — rapid multiple-choice practice, especially helpful for distinctions like BCP vs. DRP  
+I briefly reviewed concepts I already understood and then focused primarily on areas where I needed more reinforcement.
 
-Rather than trying to memorize everything, I concentrated on the areas that weren’t already second nature from my experience.<br><br>
+- **ChatGPT** for targeted clarification when concepts needed tightening  
+- **Florida Tech coursework** in *Secure Networks & Communication* and *Host-Based Security*, which aligned closely with the exam’s technical domains  
+- **Jason Dion’s Udemy course** to systematically review encryption standards and Zero Trust Architecture  
+- **Light memorization tools** (Anki and Pocket Prep) for details like ports, protocols, and closely related definitions  
+ <br><br>
 
 ### What I Took Away
 
-Security+ gave me a more structured understanding of concepts I’d previously applied in academic and operational contexts. It also helped translate military experience into language that resonates across the broader cybersecurity field. More than anything, it reinforced that consistent, focused study beats brute-forcing material every time.
+Security+ didn’t change the direction of my career, but it did strengthen the foundation it’s built on. It helped translate military and academic experience into language that resonates across the industry and reinforced the importance of precision when working with foundational concepts, especially with regards to security.
