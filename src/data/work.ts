@@ -25,7 +25,7 @@ export const work = [
       ],
     },
     {
-      title: "Senior Enlisted Advisor, Air & Space Force",
+      title: "Senior Enlisted Advisor",
       company: "Defense Language Institute — Washington",
       region: "Washington, D.C.",
       description:
