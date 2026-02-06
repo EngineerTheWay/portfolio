@@ -11,7 +11,7 @@ export const workIcons = {
 
 export const work = [
     {
-      title: "Training Program Manager",
+      title: "Academic Program Manager",
       company: "Defense Language Institute",
       region: "Monterey, CA",
       description:
