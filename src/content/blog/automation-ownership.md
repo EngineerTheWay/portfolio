@@ -2,7 +2,7 @@
 title: 'Who Owns the Automation?'
 description: 'Why workflow automations fail—and how ownership and documentation are key to its success.'
 pubDate: 'Feb 8 2026'
-heroImage: '../../assets/images/automation.png'
+heroImage: '../../assets/images/blog/automation.png'
 category: 'Showcase'
 tags: ['automation', 'systems-thinking', 'power-platform', 'process-design']
 ---

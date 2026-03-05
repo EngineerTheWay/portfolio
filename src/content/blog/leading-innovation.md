@@ -2,7 +2,7 @@
 title: 'Mission-Driven Innovation'
 description: 'How I have led innovation in resource constrained military organizations.'
 pubDate: 'May 08 2025'
-heroImage: '../../assets/images/mission-driven.jpeg'
+heroImage: '../../assets/images/blog/mission-driven.jpeg'
 category: 'Showcase'
 tags: ['innovation', 'agile', 'leadership']
 ---
