@@ -1,12 +1,12 @@
 ---
-title: "Relational Data Architecture"
-description: "Designed and normalized a relational data model for an LMS to demonstrate ER modeling, role-based structure, and many-to-many relationship resolution."
+title: "Relational Data Model"
+description: "A relational data model for a learning management system built to explore ER modeling, normalization, and role-based system design."
 techStack:
   - SQL
   - ER Modeling
   - Data Normalization
 priority: 8
-icon: ../../assets/icons/sql.svg
+# icon: ../../assets/icons/sql.svg
 ctaText: "View Case Study →"
 ---
 
@@ -14,76 +14,78 @@ ctaText: "View Case Study →"
 
 ## Overview
 
-This project serves as a focused ER modeling exercise, applying normalization and relational design principles within a realistic LMS scenario. It was designed to demonstrate structured data modeling concepts, not to implement a production-ready system.<br><br>
+This project explores core relational database design concepts using a simplified learning management system (LMS) scenario.
+
+The goal was to practice structuring a system around clear entities, relationships, and normalized data while modeling common LMS workflows like enrollment, coursework, and grading.
+
+Rather than building a full application, this project focuses on how the data model supports the system.
+
+<br>
 
 ---
 
 <br>
 
-## Problem Context
+## Design Goals
 
-A structured LMS requires:
+The model was designed around a few basic system requirements:
 
-- Role-based user participation (students, faculty, staff)
-- Controlled enrollment and teaching assignments
-- Section-based organization of coursework
-- Secure grade storage and access controls
-- Efficient query performance for operational reporting
+- Users can participate in different roles (student, faculty, staff)
+- Students enroll in course sections
+- Faculty are assigned to teach sections
+- Coursework (assignments, exams, discussions) lives inside sections
+- Student activity like submissions and attempts can be tracked over time
 
-The system needed to prevent improper associations (e.g., non-students enrolling in courses) while maintaining flexibility and performance. <br><br>
+These requirements helped shape the relationships between entities and ensured the system could support typical LMS workflows.
+
+<br>
 
 ---
 
 <br>
 
-## Architecture Approach <br>
+## Key Modeling Concepts
 
-### Supertype / Subtype Model
+### Role-Based User Structure
 
-Implemented a supertype/subtype structure:
+Users share common identity and authentication data, but participate in the system through different roles.
 
-- **User** (supertype)
+To support this, the model uses a **supertype/subtype design**:
+
+- **User** (core identity record)
   - Student
   - Faculty
   - Staff
 
-All authentication occurs through the `User` entity.  
-Subtype membership determines participation in system operations.
-
-This design enforces role integrity at the data model level. <br><br>
-
-
-### Relationship Design
-
-Resolved many-to-many relationships using associative entities:
-
-- `StudentEnrollment` (Student ↔ Section)
-- `TeacherAssignment` (Faculty ↔ Section)
-- `Submission` (Assignment ↔ Student)
-- `ExamAttempt` (Exam ↔ Student)
-- `DiscussionPost` (Discussion ↔ User)
-
-This approach:
-
-- Preserves normalization
-- Prevents data duplication
-- Maintains referential integrity <br><br>
-
----
+This keeps authentication centralized while allowing role-specific attributes to live in separate tables.
 
 <br>
 
-### Section-Centric Structure
+### Resolving Many-to-Many Relationships
 
-The `Section` entity serves as the operational hub.
+Several parts of the system require many-to-many relationships.
 
-Most system activity (assignments, exams, discussions, grading) occurs within the context of a section.
+Instead of linking entities directly, the model resolves these using associative tables:
 
-Anchoring related entities to `Section` enables:
+- `StudentEnrollment` → connects students and sections
+- `TeacherAssignment` → connects faculty and sections
+- `Submission` → connects students and assignments
+- `ExamAttempt` → connects students and exams
+- `DiscussionPost` → connects users and discussion threads
 
-- Clear lifecycle management
-- Efficient querying
-- Logical grouping of coursework <br><br>
+This structure keeps the data normalized and prevents duplication.
+
+<br>
+
+### Section-Centered Coursework
+
+Most learning activity happens within the context of a **course section**.
+
+Assignments, exams, and discussions are all tied to `Section`, which allows each section of the same course to have its own schedule, instructors, and coursework.
+
+This makes the model flexible for different instructors or terms while still keeping courses organized.
+
+<br>
 
 ---
 
@@ -91,14 +93,12 @@ Anchoring related entities to `Section` enables:
 
 ## Data Model
 
-![Raw Database Input](../../assets/images/projects/er-diagram.png)
+![ER Diagram](../../assets/images/projects/er-diagram.png)
 
-Key Entities:
+Core entities include:
 
 - User
-- Student
-- Faculty
-- Staff
+- Student / Faculty / Staff
 - Course
 - Section
 - StudentEnrollment
@@ -108,28 +108,26 @@ Key Entities:
 - Discussion
 - Submission
 - ExamAttempt
-- DiscussionPost <br><br>
+- DiscussionPost
+
+The model also includes examples of:
+
+- **Activity tracking** (submissions, exam attempts)
+- **Threaded discussions** using a self-referencing relationship
+- **Lifecycle data** such as enrollment status and timestamps
+
+<br>
 
 ---
 
 <br>
 
-## Performance Considerations
+## What This Demonstrates
 
-- Indexed primary keys (UserID, CourseID, SectionID).
-- Indexed foreign keys for join efficiency.
-- Applied composite indexes on associative entities to optimize many-to-many queries.
-- Used SectionID as a central indexing anchor due to section-based activity patterns.
-- Considered subtype indexing for role-based filtering (Student vs Faculty queries). <br><br>
+This project highlights several foundational database design concepts:
 
----
-
-<br>
-
-## Security & Governance Controls
-
-- Password storage designed using salted + hashed values.
-- Implemented role-based access control (RBAC) to prevent grade manipulation.
-- Enforced referential integrity via foreign key constraints.
-- Designed archival strategy for end-of-term grade storage.
-- Scheduled regular database backups for resilience. <br><br>
+- Structuring systems around clear entities
+- Normalizing data to reduce duplication
+- Resolving many-to-many relationships
+- Modeling hierarchical data (discussion replies)
+- Designing schemas that support real operational workflows
