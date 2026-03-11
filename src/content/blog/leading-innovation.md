@@ -5,7 +5,6 @@ pubDate: 'May 08 2025'
 heroImage: '../../assets/images/blog/mission-driven.jpeg'
 category: 'Showcase'
 tags: ['innovation', 'agile', 'leadership']
-featured: true
 ---
 <br>
 

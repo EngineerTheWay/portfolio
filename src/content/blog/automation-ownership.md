@@ -5,6 +5,7 @@ pubDate: 'Feb 8 2026'
 heroImage: '../../assets/images/blog/automation.png'
 category: 'Showcase'
 tags: ['automation', 'systems-thinking', 'power-platform', 'process-design']
+featured: true
 ---
 <br>
 
