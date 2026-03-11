@@ -12,7 +12,11 @@ import { calculateReadingTimeFromHtml } from '../../lib/reading';
 
 const PAGE_SIZE = 6;
 const posts = (await getCollection('blog')).sort((a,b)=>+b.data.pubDate-+a.data.pubDate);
-const [featured, ...rest] = posts;
+const featuredCandidates = posts.filter(p => p.data.featured);
+const featured =
+  featuredCandidates.sort((a,b)=>+b.data.pubDate-+a.data.pubDate)[0]
+  ?? posts[0];
+const rest = posts.filter(p => p !== featured);
 const firstPagePosts = rest.slice(0, PAGE_SIZE);
 const totalPages = Math.max(1, Math.ceil(rest.length / PAGE_SIZE));
 let featuredReading = 0;
