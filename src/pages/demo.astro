@@ -58,8 +58,8 @@ const [firstPost, secondPost, thirdPost] = posts.slice(0, 3);
           title="Your Headline Goes Here!"
           subtitle="I build softwares that brings you loyal subscribers."
           showCTA
-          primaryCTA={{ text: 'View Projects', href: '/portfolio' }}
-          secondaryCTA={{ text: 'Read Blog', href: '/blog' }}
+          primaryCTA={{ text: 'View Solutions', href: '/projects' }}
+          secondaryCTA={{ text: 'Read Insights', href: '/blog' }}
         />
       </section>
 
@@ -148,16 +148,15 @@ const [firstPost, secondPost, thirdPost] = posts.slice(0, 3);
         </section>
       )}
 
-      <!-- Sections: Skills, Work, Studies, Projects -->
+      <!-- Sections: Skills, Work, Studies, Solutions -->
       <section class="space-y-6">
         <SkillsSection title="Skills & Tools" skills={skills} />
         <WorkExperience title="Work Experience" items={work} />
         <Studies title="Studies" items={studies} />
-        <ProjectsSection title="Projects" />
+        <ProjectsSection title="Solutions" />
       </section>
     </main>
     <Footer />
   </body>
 </html>
-
 

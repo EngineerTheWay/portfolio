@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/sections/Header.astro";
 import Footer from "../../components/sections/Footer.astro";
@@ -17,12 +18,12 @@ const projects = (await getCollection("projects")).sort((a, b) => {
 
 <html lang="en" data-theme="dark" class="dark">
   <head>
-    <BaseHead title="Portfolio" description="Selected tech projects & case studies." />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
     <main>
-      <HeroSection title="Featured Projects" subtitle="Case studies & source code." />
+      <HeroSection title="Featured Solutions" subtitle="Case studies & tech projects." />
             <ArrowSeparator />
             <Projects projects={projects} />
       <GlowLineSeparator />
@@ -30,4 +31,3 @@ const projects = (await getCollection("projects")).sort((a, b) => {
     <Footer />
   </body>
 </html>
-

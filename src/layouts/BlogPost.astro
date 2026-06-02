@@ -49,7 +49,7 @@ const { title, description, pubDate, updatedDate, heroImage, showHeader = true, 
 		  '@type': 'BreadcrumbList',
 		  itemListElement: [
 		    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).toString() },
-		    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog/', Astro.site).toString() },
+		    { '@type': 'ListItem', position: 2, name: 'Insights', item: new URL('/blog/', Astro.site).toString() },
 		    { '@type': 'ListItem', position: 3, name: title, item: new URL(Astro.url.pathname, Astro.site).toString() },
 		  ],
 		})} />
@@ -128,7 +128,7 @@ const { title, description, pubDate, updatedDate, heroImage, showHeader = true, 
                     <slot />
                     <PostNav prev={prevPost} next={nextPost} />
                     <br>
-                    <a href="/blog" class="sw-btn">← All Blog Posts</a>
+                    <a href="/blog" class="sw-btn">← All Insights</a>
                 </div>
 			</article>
 		</main>
