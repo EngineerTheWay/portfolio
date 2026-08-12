@@ -186,7 +186,7 @@ The dashboard also surfaces current follow-up activity so upcoming actions remai
 
 ![Career Development Hub Follow-ups Calendar](../../assets/images/projects/cdh/cdh-fu-calendar.png)
 
-#### Calendar View
+#### Follow-up Edit View
 
 ![Career Development Hub Follow-ups Edit](../../assets/images/projects/cdh/cdh-follow-up-edit.png)
 
