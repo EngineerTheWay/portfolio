@@ -280,10 +280,9 @@ At the same time, these limitations helped me develop stronger skills in require
 
 <br>
 
-#### Code App Interface
+#### PowerApps Vibe Interface
 
-> **Optional screenshot or development environment screenshot**
-
+![Career Development Hub Data Model](../../assets/images/projects/cdh/cdh-vibe.png)
 <br>
 
 ---
