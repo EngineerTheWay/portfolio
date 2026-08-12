@@ -5,9 +5,9 @@ techStack:
   - Power Platform
   - Power Automate
   - Microsoft 365
-priority: 1
-# icon: ../../assets/logos/Power_Automate.svg
-ctaText: "View Case Study →"
+priority: 9
+icon: ../../assets/logos/Power_Automate.svg
+ctaText: "View Solution →"
 ---
 
 <br>
