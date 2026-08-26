@@ -9,7 +9,7 @@ techStack:
 priority: 1
 icon: ../../assets/logos/PowerApps.svg
 ctaText: "View Solution →"
-sourceLink: "https://github.com/EngineerTheWay/CareerDevelopmentHub/tree/main/CareerDevelopmentHubCode/apps/career-development-hub"
+sourceLink: "https://github.com/EngineerTheWay/CareerDevelopmentHub/tree/main"
 ---
 
 <br>
