@@ -5,6 +5,85 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
 ---
 
 <style>
+.sw-header {
+  /* Shared by the bar itself and by the drawer/scrim, which hang off the
+     bottom edge of the bar. Changing the bar height moves them together. */
+  --sw-header-h: 70px;
+  position: relative;
+  z-index: 70;
+}
+
+/* The desktop bar takes its height from the padded nav links, which are hidden
+   below md, so without a floor it shrinks at mobile widths and the whole page
+   shifts as the viewport crosses the breakpoint. The tallest child (a 58px nav
+   link) is shorter than this, so the height holds in both states and
+   `items-center` centres the contents. */
+.sw-header nav {
+  min-height: var(--sw-header-h);
+}
+
+/* Slide-out drawer, anchored under the bar on the right. 75% of the viewport
+   with a 320px ceiling is the common mobile-drawer sizing: wide enough to read
+   comfortably, while leaving a visible strip of page behind it so the overlay
+   still reads as temporary. The cap keeps it from stretching absurdly wide on a
+   narrow desktop window, which is the only other place it appears. */
+.mobile-drawer {
+  position: fixed;
+  top: var(--sw-header-h);
+  right: 0;
+  bottom: 0;
+  width: 75%;
+  max-width: 320px;
+  z-index: 60;
+  background: var(--color-bg-primary);
+  border-left: 1px solid var(--border);
+  /* Separates the drawer from the bar above it, continuing the header rule
+     across the panel rather than stopping at the scrim. Uses --border, the
+     same token the header's own bottom rule uses: --color-border derives from
+     --gray-light, which is a near-black in the dark theme and disappears
+     against the panel. */
+  border-top: 1px solid var(--border);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translateX(100%);
+  visibility: hidden;
+  /* Visibility flips only after the slide finishes, so the panel cannot be
+     tabbed into mid-animation but is still painted while sliding out. */
+  transition: transform 0.28s ease, visibility 0s linear 0.28s;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.28s ease, visibility 0s;
+}
+
+.menu-scrim {
+  position: fixed;
+  top: var(--sw-header-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
+}
+
+.menu-scrim.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.28s ease, visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-drawer,
+  .menu-scrim {
+    transition: none;
+  }
+}
+
 [data-menu-btn] {
   position: relative;
   width: 24px;
@@ -44,39 +123,63 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
 }
 </style>
 
+<style is:global>
+/* Full-width rows with a rule between each, so the tap target for every entry
+   is obvious rather than implied by the text width alone. */
+.mobile-drawer .drawer-row {
+  display: block;
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  text-align: left;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mobile-drawer .drawer-row:hover,
+.mobile-drawer .drawer-row:focus-visible {
+  background-color: rgba(var(--gray-light), 0.06);
+  color: var(--color-text-primary);
+}
+
+.mobile-drawer .drawer-row.active {
+  color: var(--accent);
+}
+
+.mobile-drawer .drawer-social {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+</style>
+
 <header class="bg-background text-foreground border-b sw-header">
-    <nav class="mx-auto max-w-6xl px-4 py-2 flex items-center justify-between">
+    <nav class="mx-auto max-w-6xl px-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
             <a class="no-underline hover:opacity-90 flex items-center gap-2" href="/" aria-label="Home">
                 <img src="/favicon.svg?v=1" alt="" aria-hidden="true" width="45" height="45" />
             </a>
             <div class="internal-links hidden md:flex items-center gap-2 ml-1">
-                <HeaderLink href="/" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Home</HeaderLink>
-                <HeaderLink href="/projects" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Solutions</HeaderLink>
-                <HeaderLink href="/blog" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Insights</HeaderLink>
-                <a href="#contact" class="px-2 py-3 text-[color:var(--color-text-secondary)] no-underline">Contact</a>
+                <HeaderLink href="/" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Home</HeaderLink>
+                <HeaderLink href="/projects" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Solutions</HeaderLink>
+                <HeaderLink href="/blog" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Insights</HeaderLink>
+                <a href="#contact" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Contact</a>
             </div>
         </div>
         <div class="flex items-center gap-3">
             <div class="social-links hidden md:flex items-center gap-3">
-                <a href="https://linkedin.com/in/waycaleb" target="_blank" class="group text-[color:var(--color-text-secondary)] relative -top-[2.5px]">
+                <a href="https://linkedin.com/in/waycaleb" target="_blank" rel="noopener noreferrer" class="group text-[color:var(--color-text-secondary)]">
                     <span class="sr-only">Connect with me on LinkedIn!</span>
                     <!-- LinkedIn icon -->
-                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"
+                    <svg viewBox="0 0.8 24 24" width="24" height="24" aria-hidden="true"
                             class="transition-colors group-hover:text-[color:var(--accent)]">
                             <path fill="currentColor" d="M4.983 3.5C4.983 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.983 2.12 4.983 3.5zM.25 8.25h4.5V24h-4.5V8.25zm7.75 0h4.312v2.144h.062c.6-1.137 2.062-2.312 4.25-2.312 4.544 0 5.375 2.987 5.375 6.875V24h-4.5v-8.25c0-1.963-.037-4.5-2.75-4.5-2.75 0-3.188 2.15-3.188 4.375V24h-4.5V8.25z"/></svg>
                 </a>
-                <!-- GITHUB_LINK_DISABLED: Restore this block to show the GitHub icon in the desktop header.
-                <a href="https://github.com/EngineerTheWay" target="_blank" class="group text-[color:var(--color-text-secondary)]">
+                <a href="https://github.com/EngineerTheWay" target="_blank" rel="noopener noreferrer" class="group text-[color:var(--color-text-secondary)]">
                     <span class="sr-only">Go to GitHub</span>
                     <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24" class="transition-colors group-hover:text-[color:var(--accent)]"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
-                </a>
-                -->
-                <a href="mailto:contact@calebway.io?subject=Portfolio%20Inquiry" class="group text-[color:var(--color-text-secondary)]" aria-label="Send me an email">
-                  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-colors group-hover:text-[color:var(--accent)]">
-                    <rect x="3" y="5" width="20" height="15.5" rx="2" />
-                    <path d="m3 7 9 6 9-6" />
-                  </svg>
                 </a>
             </div>
             <ThemeToggle />
@@ -95,65 +198,98 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
             </button>
         </div>
     </nav>
-    <div id="mobile-menu" class="md:hidden hidden border-t">
-        <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2">
-            <div class="flex flex-col">
-                <HeaderLink href="/" class="px-2 py-3">Home</HeaderLink>
-                <HeaderLink href="/projects" class="px-2 py-3">Solutions</HeaderLink>
-                <HeaderLink href="/blog" class="px-2 py-3">Insights</HeaderLink>
-                <a href="#contact" class="px-2 py-3">Contact</a>
-            </div>
-            <div class="flex items-center gap-4 pt-2">
-                <a href="https://linkedin.com/in/waycaleb" target="_blank" class="group inline-flex items-center text-[color:var(--color-text-secondary)] relative -top-[3px]">
-                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" class="transition-colors group-hover:text-white"><path fill="currentColor" d="M4.983 3.5C4.983 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.983 2.12 4.983 3.5zM.25 8.25h4.5V24h-4.5V8.25zm7.75 0h4.312v2.144h.062c.6-1.137 2.062-2.312 4.25-2.312 4.544 0 5.375 2.987 5.375 6.875V24h-4.5v-8.25c0-1.963-.037-4.5-2.75-4.5-2.75 0-3.188 2.15-3.188 4.375V24h-4.5V8.25z"/></svg>
-                </a>
-                <!-- GITHUB_LINK_DISABLED: Restore this block to show the GitHub icon in the mobile header.
-                <a href="https://github.com/EngineerTheWay" target="_blank" class="group inline-flex items-center text-[color:var(--color-text-secondary)] relative -bottom-[2px]">
-                    <svg viewBox="0 0 16 16" aria-hidden="true" width="22" height="22" class="transition-colors group-hover:text-white"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">"></path></svg>
-                </a>
-                -->
-                <a
-                  href="mailto:contact@calebway.io?subject=Portfolio%20Inquiry"
-                  class="group inline-flex items-center text-[color:var(--color-text-secondary)]"
-                  aria-label="Send me an email"
-                >
-                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-colors group-hover:text-white">
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="m3 7 9 6 9-6" />
-                  </svg>
-                </a>
-            </div>
+    <div class="menu-scrim md:hidden" data-menu-scrim aria-hidden="true"></div>
+    <div id="mobile-menu" class="mobile-drawer md:hidden" inert>
+        <nav class="flex flex-col" aria-label="Mobile">
+            <HeaderLink href="/" class="drawer-row no-underline">Home</HeaderLink>
+            <HeaderLink href="/projects" class="drawer-row no-underline">Solutions</HeaderLink>
+            <HeaderLink href="/blog" class="drawer-row no-underline">Insights</HeaderLink>
+            <a href="#contact" class="drawer-row no-underline">Contact</a>
+        </nav>
+        <div class="drawer-social">
+            <a href="https://linkedin.com/in/waycaleb" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center text-[color:var(--color-text-secondary)]">
+                <span class="sr-only">Connect with me on LinkedIn!</span>
+                <svg viewBox="0 0.8 24 24" width="24" height="24" aria-hidden="true" class="transition-colors group-hover:text-white"><path fill="currentColor" d="M4.983 3.5C4.983 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.983 2.12 4.983 3.5zM.25 8.25h4.5V24h-4.5V8.25zm7.75 0h4.312v2.144h.062c.6-1.137 2.062-2.312 4.25-2.312 4.544 0 5.375 2.987 5.375 6.875V24h-4.5v-8.25c0-1.963-.037-4.5-2.75-4.5-2.75 0-3.188 2.15-3.188 4.375V24h-4.5V8.25z"/></svg>
+            </a>
+            <a href="https://github.com/EngineerTheWay" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center text-[color:var(--color-text-secondary)]">
+                <span class="sr-only">Go to GitHub</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24" class="transition-colors group-hover:text-white"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+            </a>
         </div>
     </div>
 </header>
 
 <script is:inline>
-  const btn = document.querySelector('[data-menu-btn]');
-  const panel = document.getElementById('mobile-menu');
+  (() => {
+    const btn = document.querySelector('[data-menu-btn]');
+    const panel = document.getElementById('mobile-menu');
+    const scrim = document.querySelector('[data-menu-scrim]');
+    if (!btn || !panel) return;
 
-  function toggleMenu() {
-    if (!panel || !btn) return;
-    const isOpen = !panel.classList.contains('hidden');
-    if (isOpen) {
-      panel.classList.add('hidden');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.classList.remove('open');
-    } else {
-      panel.classList.remove('hidden');
-      btn.setAttribute('aria-expanded', 'true');
-      btn.classList.add('open');
+    // Restored when the drawer closes, so a page that was already scroll-locked
+    // for another reason is not clobbered.
+    let previousOverflow = '';
+    let lastFocused = null;
+
+    const isOpen = () => panel.classList.contains('open');
+
+    // `returnFocus` is for dismissals (Escape, scrim, the toggle itself), where
+    // sending focus back to the button is correct. Closing because a link was
+    // followed must leave focus alone — on an in-page anchor, yanking it back to
+    // the hamburger undoes the jump the user just asked for.
+    function setMenu(open, returnFocus = true) {
+      panel.classList.toggle('open', open);
+      scrim?.classList.toggle('open', open);
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+
+      // `inert` keeps the closed drawer out of the tab order and the
+      // accessibility tree, which `visibility: hidden` alone does not guarantee
+      // during the slide transition.
+      if (open) {
+        panel.removeAttribute('inert');
+      } else {
+        panel.setAttribute('inert', '');
+      }
+
+      if (open) {
+        lastFocused = document.activeElement;
+        previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        panel.querySelector('a')?.focus({ preventScroll: true });
+      } else {
+        document.body.style.overflow = previousOverflow;
+        if (returnFocus) {
+          // Fall back to the toggle: a pointer press may leave activeElement on
+          // <body>, which is not a useful place to send focus back to.
+          const target =
+            lastFocused instanceof HTMLElement && lastFocused !== document.body
+              ? lastFocused
+              : btn;
+          target.focus({ preventScroll: true });
+        }
+        lastFocused = null;
+      }
     }
-  }
 
-  btn?.addEventListener('click', toggleMenu);
+    btn.addEventListener('click', () => setMenu(!isOpen()));
+    scrim?.addEventListener('click', () => setMenu(false));
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !panel?.classList.contains('hidden')) toggleMenu();
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) setMenu(false);
+    });
 
-  document.addEventListener('click', (e) => {
-    if (!panel || !btn) return;
-    const clickedInside = panel.contains(e.target) || btn.contains(e.target);
-    if (!clickedInside && !panel.classList.contains('hidden')) toggleMenu();
-  });
+    // Following a link should dismiss the drawer — in-page anchors especially,
+    // where no navigation occurs to unmount it.
+    panel.addEventListener('click', (e) => {
+      if (e.target instanceof Element && e.target.closest('a')) setMenu(false, false);
+    });
+
+    // Returning to desktop widths hides the drawer via CSS; close it properly so
+    // the scroll lock and button state do not linger.
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+      if (e.matches && isOpen()) setMenu(false);
+    });
+  })();
 </script>

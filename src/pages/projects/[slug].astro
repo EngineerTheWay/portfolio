@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<"projects">;
 const project = Astro.props;
-const { Content } = await render(project);
+const { Content, headings } = await render(project);
 ---
 
 <html lang="en" data-theme="dark" class="dark">
@@ -33,7 +33,7 @@ const { Content } = await render(project);
   <body>
     <Header />
     <main class="mx-auto max-w-6xl px-4 py-10">
-      <ProjectsPost {...project.data}>
+      <ProjectsPost {...project.data} headings={headings}>
         <Content />
       </ProjectsPost>
     </main>

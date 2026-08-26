@@ -3,15 +3,19 @@ import { Image } from "astro:assets";
 import Badge from "../components/ui/badge/Badge.astro";
 import Button from "../components/ui/button/Button.astro";
 import GlowLineSeparator from '../components/ui/separator/GlowLineSeparator.astro'
+import TableOfContents from "../components/ui/toc/TableOfContents.astro";
+import type { MarkdownHeading } from "astro";
 
 interface Props {
   title: string;
   description: string;
   techStack?: string | string[];
   icon?: ImageMetadata;
+  sourceLink?: string;
+  headings?: MarkdownHeading[];
 }
 
-const { title, description, techStack, icon, sourceLink } = Astro.props as Props;
+const { title, description, techStack, icon, sourceLink, headings = [] } = Astro.props as Props;
 ---
 <head>
         <style>
@@ -37,6 +41,12 @@ const { title, description, techStack, icon, sourceLink } = Astro.props as Props
                     margin: auto;
                     padding: 0.05em;
                     color: var(--color-text-secondary);
+                }
+                /* Anchors the table-of-contents rail, which is absolutely
+                   positioned into the right gutter. Starting the container
+                   below the title block keeps the rail clear of the header. */
+                .post-body {
+                    position: relative;
                 }
             .title {
                 margin-bottom: 1em;
@@ -93,11 +103,12 @@ const { title, description, techStack, icon, sourceLink } = Astro.props as Props
   </div>
 )}
 
-  <div class="mt-6">
+  <div class="mt-6 post-body">
+    <TableOfContents headings={headings} title="On This Page" />
     <slot />
-  </div>
 
-  <div class="mt-10">
-    <a href="/projects" class="sw-btn">← Back to Solutions</a>
+    <div class="mt-10">
+      <a href="/projects" class="sw-btn">← Back to Solutions</a>
+    </div>
   </div>
 </article>
