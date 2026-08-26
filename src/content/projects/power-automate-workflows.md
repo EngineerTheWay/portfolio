@@ -44,9 +44,9 @@ Dorm inspections for several hundred airmen were completed on paper, requiring h
 
 > **Tools:** Power Automate, Microsoft Forms, Excel, Microsoft Teams
 
-![Dorm Inspections Flow](../../assets/images/projects/inspections2.jpeg)
+![Dorm Inspections Flow](../../assets/images/projects/power-automate-workflows/inspections2.jpeg)
 
-![Example Excel Output](../../assets/images/projects/inspections.jpeg)
+![Example Excel Output](../../assets/images/projects/power-automate-workflows/inspections.jpeg)
 
 <details>
 <summary>⚙️ Technical Notes</summary>
@@ -89,9 +89,9 @@ I standardized the underlying SharePoint lists and implemented an automated work
 
 > **Tools:** Power Automate, SharePoint, Microsoft Planner, Microsoft Teams
 
-![View of Flow](../../assets/images/projects/planner2.jpeg)
+![View of Flow](../../assets/images/projects/power-automate-workflows/planner2.jpeg)
 
-![View of Planner](../../assets/images/projects/planner.jpeg)
+![View of Planner](../../assets/images/projects/power-automate-workflows/planner.jpeg)
 
 <details>
 <summary>⚙️ Technical Notes</summary>
@@ -128,7 +128,7 @@ Annual training requirements were tracked manually in Excel by a single manager.
 
 > **Tools:** Power Automate, SharePoint, Power BI
 
-![Example Email](../../assets/images/projects/reminder.png)
+![Example Email](../../assets/images/projects/power-automate-workflows/reminder.png)
 
 <details>
 <summary>⚙️ Technical Notes</summary>
@@ -169,7 +169,7 @@ Students submitted dozens of absence requests daily through email and Teams mess
 
 > **Tools:** Power Automate, SharePoint, Microsoft Teams
 
-![Example Teams Message](../../assets/images/projects/automessage.png)
+![Example Teams Message](../../assets/images/projects/power-automate-workflows/automessage.png)
 
 <details>
 <summary>⚙️ Technical Notes</summary>
@@ -209,7 +209,7 @@ Onboarding dozens of students and staff required manually sending multiple email
 
 > **Tools:** Power Automate, SharePoint, Microsoft Teams
 
-![View of Attachments](../../assets/images/projects/attachments.png)
+![View of Attachments](../../assets/images/projects/power-automate-workflows/attachments.png)
 
 <details>
 <summary>⚙️ Technical Notes</summary>

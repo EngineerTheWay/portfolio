@@ -1,27 +1,28 @@
 ---
 title: "Career Development Hub"
-description: "Built a career management application using Power Apps Code Apps and Dataverse to connect networking contacts, job applications, and follow-up workflows."
+description: "Built a multi-experience career management solution with Power Apps and Dataverse to manage applications, professional relationships, interactions, and follow-ups."
 techStack:
   - Power Apps
-  - Dataverse
-  - Copilot
+  - Power Automate
   - Power Platform
+  - Dataverse
 priority: 1
 icon: ../../assets/logos/PowerApps.svg
 ctaText: "View Solution →"
+sourceLink: "https://github.com/EngineerTheWay/CareerDevelopmentHub/tree/main/CareerDevelopmentHubCode/apps/career-development-hub"
 ---
 
 <br>
 
 ## Overview
 
-Career Development Hub is a personal career management application I built to bring networking, job applications, and follow-up activity into one connected system.
+Career Development Hub is a personal career management solution I built to keep job applications, networking contacts, follow-ups, interaction history, and calendar activity in one connected system.
 
-I developed the application during my own career transition after finding that the information supporting a job search was often fragmented across spreadsheets, LinkedIn, company career portals, calendar reminders, and personal notes.
+I started the project during my own career transition after realizing that the context behind a job search was spread across spreadsheets, LinkedIn, company career portals, notes, and calendar reminders. The more people and opportunities I was tracking, the harder it became to keep the relationships between them clear.
 
-Beyond solving that problem, I used the project as an opportunity to explore Microsoft's newer Power Apps Code Apps development model and gain hands-on experience building a code-first application on top of Dataverse within my own Microsoft tenant.
+The project evolved into a broader Power Platform solution built around Dataverse. It now includes a custom Power Apps Code App, a model-driven app, a mobile canvas companion app, automated daily briefing, JavaScript-based business logic, and supporting administration workflows.
 
-The resulting application combines a custom React and TypeScript interface with a relational Dataverse backend, while using Power Platform as the foundation for data management and future automation.
+The goal throughout the project has stayed simple: make it easier to understand what is happening, what needs attention next, and the history behind each relationship or opportunity.
 
 <br>
 
@@ -33,17 +34,18 @@ The resulting application combines a custom React and TypeScript interface with 
 
 Managing a job search involves more than tracking submitted applications.
 
-Applications are connected to companies, networking conversations, recruiters, hiring managers, interviews, and follow-up actions. As the number of opportunities and contacts grows, that context can quickly become fragmented.
+Applications are connected to companies, recruiters, hiring managers, networking contacts, conversations, interviews, and follow-up actions. That context becomes difficult to maintain once it is split across several tools.
 
-I wanted a system that could answer questions such as:
+I wanted a system that could answer practical questions quickly:
 
 - Which applications are currently active?
 - Who do I know at a particular company?
-- What follow-ups are overdue or coming up?
+- What follow-ups are due today or overdue?
+- What happened the last time I spoke with a contact?
 - Where is each application in the hiring process?
-- What context do I need before reconnecting with someone?
+- What is on my calendar today?
 
-A spreadsheet could track individual records, but I wanted to model the relationships between them and create an application designed around the workflow itself.
+A spreadsheet could store the records, but it did not model the relationships or support the workflows I wanted around them.
 
 <br>
 
@@ -53,36 +55,52 @@ A spreadsheet could track individual records, but I wanted to model the relation
 
 ## Solution
 
-I designed Career Development Hub around three primary workflows: networking, job applications, and follow-up management.
+Career Development Hub is built around a shared Dataverse data model with several application experiences layered on top of it.
 
-Instead of treating these as independent lists, the application connects them through a Dataverse data model. Contacts and applications can be associated with companies and business groups, while follow-ups retain context about the contact or application they relate to.
+- **Power Apps Code App** for the primary desktop experience
+- **Model-driven app** for structured Dataverse forms, views, and administrative workflows
+- **Canvas app** as a lightweight mobile companion for quick capture
+- **Power Automate** for scheduled workflow automation and daily briefing
+- **JavaScript libraries** for client-side business logic in model-driven forms
+- **Dataverse** as the system of record across the solution
 
-The application provides four primary experiences:
+This lets each interface focus on the kind of work it handles best while keeping the underlying data connected.
 
-- A dashboard for quickly understanding current activity
-- Networking contact and relationship management
-- A job application pipeline
-- Integrated follow-up management with list and calendar views
+<br>
+
+### Choosing the Right App Type
+
+Power Apps offers three ways to build an app, and this project ended up using all three against the same data. That turned out to be the clearest way to learn where each one actually fits.
+
+| | **Canvas App** | **Model-Driven App** | **Code App** |
+|---|---|---|---|
+| **What it is** | Drag-and-drop screens with Power Fx formulas | Configuration-first UI generated from your Dataverse tables | A React/TypeScript app you write, hosted on Power Platform |
+| **Generally used for** | Task-focused and mobile apps, quick capture, guided forms | Record management, back-office and admin apps, data-heavy processes | Custom experiences that need real UI control or third-party libraries |
+| **How I used it** | Mobile companion for logging contacts, interactions, and follow-ups on the go | Structured record management, admin workflows, business rules, and JavaScript form logic | The primary desktop experience: dashboard, pipeline, follow-up calendar, and data management |
+| **Strengths** | Fastest to build, great on a phone, no code required | Forms, views, search, and security come free with the data model | Full control of layout and behavior, real components, real code |
+| **Trade-offs** | Layout is manual, logic lives in formulas, gets unwieldy as it grows | Limited visual control, everything looks like a Dynamics app | You own the code, the build, and the deployment; still in preview |
+
+The short version: if the data model can carry the app, use model-driven. If it needs to be fast and focused on a phone, use canvas. If the experience itself is the point, write it.
 
 <br>
 
 ### Career Dashboard
 
-The dashboard provides a high-level view of the current job search and surfaces information requiring attention.
+The dashboard is the main starting point for the Code App and provides a quick view of current activity.
 
-- Application pipeline grouped by stage
+It surfaces:
+
+- Application pipeline by stage
 - Upcoming and overdue follow-ups
-- Calendar preview of scheduled activity
-- Quick-create actions for contacts, applications, and follow-ups
-- Direct navigation into detailed application and calendar views
+- Calendar activity
+- Quick-create actions
+- Direct navigation into applications, contacts, and follow-up workflows
 
-Rather than acting only as a reporting page, the dashboard serves as the starting point for common workflows throughout the application.
-
-<br>
+Rather than functioning as a static reporting page, the dashboard is designed around the actions I use most often.
 
 #### Dashboard View
 
-![Career Development Hub Dashboard](../../assets/images/projects/cdh/cdh-dashboard.png)
+![Career Development Hub Dashboard](../../assets/images/projects/cdh/apps/cdh-dashboard.png)
 
 <br>
 
@@ -90,32 +108,39 @@ Rather than acting only as a reporting page, the dashboard serves as the startin
 
 <br>
 
-### Networking & Relationship Management
+## Networking & Relationship Management
 
-The networking workspace provides a structured way to maintain professional relationships alongside the companies and opportunities they relate to.
+The contacts workspace keeps professional relationships in the same system as applications and follow-up activity.
 
-Each contact can include:
+Each contact can include company and business group, role, relationship type, contact information, notes, active follow-ups, and interaction history. Search and filtering make it easy to locate contacts across the larger dataset.
 
-- Company and business group
-- Role
-- Relationship type
-- Contact information
-- Relationship context and notes
-- Associated follow-up activity
+#### Contacts Table View
 
-Search and filtering allow contacts to be located across multiple fields or narrowed by company and business group.
+![Career Development Hub Contacts](../../assets/images/projects/cdh/apps/cdh-contacts.png)
 
-This structure makes networking information part of the same system as the application pipeline rather than maintaining a separate contact list.
+#### Contact Record View
+
+![Career Development Hub Contact Record](../../assets/images/projects/cdh/apps/cdh-view-contact.png)
 
 <br>
 
-#### Networking Contacts View
+### Interaction History
 
-![Career Development Hub Contacts](../../assets/images/projects/cdh/cdh-contacts.png)
+I added an **Interactions** feature to improve how relationship history is recorded.
 
-#### Application Edit
+Follow-ups are useful for future actions, but they do not fully capture what has already happened. Interactions provide a dedicated history of conversations, meetings, messages, and other touchpoints associated with a contact.
 
-![Career Development Hub Application Edit](../../assets/images/projects/cdh/cdh-editcontact.png)
+This makes it easier to open a contact record and understand the relationship without reconstructing the history from notes or completed tasks.
+
+#### Create Interaction
+
+![Create Career Development Hub Interaction](../../assets/images/projects/cdh/apps/cdh-create-interaction.png)
+
+The contact and follow-up workflows also support common actions directly from the record, including reviewing active follow-ups, adding interactions, and completing related follow-ups.
+
+#### Complete a Follow-up and log an interaction
+
+![Complete Follow-up from Contact](../../assets/images/projects/cdh/apps/cdh-contact-completefu.png)
 
 <br>
 
@@ -123,11 +148,11 @@ This structure makes networking information part of the same system as the appli
 
 <br>
 
-### Application Pipeline
+## Application Pipeline
 
-The application workspace tracks opportunities throughout the hiring process while retaining organizational and role-specific context.
+The applications workspace tracks opportunities through the hiring process while retaining organizational and role-specific context.
 
-Applications include information such as:
+Applications include fields such as:
 
 - Role and job ID
 - Company and business group
@@ -136,19 +161,17 @@ Applications include information such as:
 - Application date
 - Job posting link
 - Notes and related context
-- Associated follow-up activity
+- Associated contacts and follow-ups
 
-Applications can be searched and filtered by stage, company, business group, and other fields, allowing the same interface to support both an active job search and historical opportunity tracking.
+The workspace supports both active pipeline management and historical opportunity tracking.
 
-<br>
+#### Applications View
 
-#### Application View
+![Career Development Hub Applications](../../assets/images/projects/cdh/apps/cdh-applications.png)
 
-![Career Development Hub Applications](../../assets/images/projects/cdh/cdh-applications.png)
+#### Application Record View
 
-#### Application Edit
-
-![Career Development Hub Application Edit](../../assets/images/projects/cdh/cdh-editapp.png)
+![Career Development Hub Application Record View](../../assets/images/projects/cdh/apps/cdh-view-application.png)
 
 <br>
 
@@ -156,39 +179,124 @@ Applications can be searched and filtered by stage, company, business group, and
 
 <br>
 
-### Follow-up Management
+## Follow-up Management
 
 Follow-ups connect actions and reminders directly to the records that created them.
 
-A follow-up can be associated with a networking contact, job application, or used as a standalone career task. This preserves context that would otherwise be lost in a generic task or calendar reminder.
+A follow-up can be associated with a networking contact, an application, or used as a standalone career task. This preserves context that would otherwise be lost in a generic task list or calendar reminder.
 
 The follow-up experience includes:
 
 - Open and completed states
-- Action-needed and overdue identification
+- Due-today and overdue identification
 - Contact and application associations
 - Search and type filtering
 - List and calendar views
-- Day, week, and month calendar navigation
+- Day, week, and month navigation
 - Direct completion from the interface
-
-The dashboard also surfaces current follow-up activity so upcoming actions remain visible without opening the full follow-up workspace.
-
-<br>
+- Drag-and-drop rescheduling on calendars
 
 #### Follow-up List
 
-![Career Development Hub Follow-ups List](../../assets/images/projects/cdh/cdh-fu-list.png)
+![Career Development Hub Follow-up List](../../assets/images/projects/cdh/apps/cdh-fu-list.png)
+
+#### Follow-up Calendar
+
+![Career Development Hub Follow-up Calendar](../../assets/images/projects/cdh/apps/cdh-fu-calendar.png)
+
+#### Calendar Rescheduling
+
+![Career Development Hub Calendar Scheduling](../../assets/images/projects/cdh/apps/cdh-calendar-dragndrop.gif)
+
+> The drag-and-drop feature for rescheduling follow-ups (shown above) is a great example of where Code Apps excel in user experience.
 
 <br>
 
-#### Calendar View
+---
 
-![Career Development Hub Follow-ups Calendar](../../assets/images/projects/cdh/cdh-fu-calendar.png)
+<br>
 
-#### Follow-up Edit View
+## Mobile Companion Canvas App
 
-![Career Development Hub Follow-ups Edit](../../assets/images/projects/cdh/cdh-follow-up-edit.png)
+I built a small canvas app as a mobile companion to the main solution.
+
+The goal was not to recreate the full desktop experience on a phone. The canvas app is intentionally focused on quick capture when I am on a call, at an event, or away from my desk.
+
+It provides a faster way to record common items directly into Dataverse without navigating through the larger Code App or model-driven experience.
+
+#### Mobile Companion App
+
+![Career Development Hub Mobile Canvas App](../../assets/images/projects/cdh/apps/cdh-canvas.png)
+
+#### Mobile New Record Workflow
+
+![Career Development Hub Mobile New Record Workflow](../../assets/images/projects/cdh/apps/cdh-canvas-exampleworkflow.png)
+
+<br>
+
+---
+
+<br>
+
+## Model-Driven App
+
+Because the underlying data is stored in Dataverse, I also built and continued expanding a model-driven application over the same tables.
+
+The model-driven app gives me a more structured environment for native forms, views, record management, and platform-level business logic. It has become useful both as an administrative interface and as a way to explore how the same business process behaves in a configuration-first Power Apps experience.
+
+I also added read-only record views for contacts and applications so users can review information before choosing to edit it.
+
+#### Model-Driven Application
+
+![Career Development Hub Model-Driven App](../../assets/images/projects/cdh/apps/cdh-modelapp.png)
+
+#### Application Record View
+
+![Model-Driven Application Record View](../../assets/images/projects/cdh/apps/cdh-modelapp-viewrecord.png)
+
+<br>
+
+### JavaScript Event Handlers and Business Rules
+
+As the model-driven app became more complete, I added JavaScript libraries to enforce business rules and reduce repetitive data entry. This enforced the same business and app logic from the Code App experience.
+
+Examples include:
+
+- Setting completion dates when records are marked complete
+- Automatically generating interaction names using relevant record data and dates
+- Keeping form behavior consistent as record status changes
+
+These were small additions individually, but they made the app feel much more intentional and helped keep stored data consistent.
+
+#### JavaScript Event Handler Example
+
+![Model-Driven Application JS Handler](../../assets/images/projects/cdh/apps/cdh-js-example.gif)
+
+#### Business Rule Example
+
+![Model-Driven Application Business Rule](../../assets/images/projects/cdh/apps/cdh-businessrules.png)
+
+<br>
+
+---
+
+<br>
+
+## Daily Brief Automation
+
+I added a scheduled Daily Brief workflow that pulls together the information I am most likely to need at the start of a working session.
+
+The brief includes:
+
+- Follow-ups due today
+- Overdue follow-ups
+- Calendar events for the day
+
+This gives me a lightweight summary of what needs attention without requiring me to open the application and manually review several views first.
+
+#### Daily Brief
+
+![Career Development Hub Daily Brief](../../assets/images/projects/cdh/apps/cdh-dailybrief.png)
 
 <br>
 
@@ -198,91 +306,24 @@ The dashboard also surfaces current follow-up activity so upcoming actions remai
 
 ## Architecture & Data Model
 
-Career Development Hub uses a Power Apps Code App as its primary interface with Dataverse serving as the system of record.
+Dataverse serves as the system of record for Career Development Hub. The Code App, model-driven app, canvas app, and automation workflows all work against the same underlying data.
 
-The application was built and deployed within my own Microsoft tenant, giving me the ability to work across the application, data, and platform layers rather than developing the interface in isolation.
-
-<br>
-
-### Relational Data Model
-
-The data model was designed around the relationships that emerge during a career search rather than treating each part of the process as an independent dataset.
-
-At a high level:
+The data model is centered on the relationships that emerge during a career search:
 
 - **Companies** provide the organizational parent for contacts and applications
-- **Business Groups** provide additional organizational context within companies
-- **Contacts** represent professional relationships and networking activity
-- **Applications** represent individual job opportunities and their current stage
-- **Follow-ups** connect time-based actions to contacts, applications, or standalone tasks
-- **Contact Application** is an intersection table, handling relationships between associated contacts and applications
+- **Business Groups** add organizational context within companies
+- **Contacts** represent professional relationships
+- **Applications** represent individual job opportunities and pipeline status
+- **Follow-ups** represent future actions associated with contacts, applications, or standalone tasks
+- **Interactions** capture historical relationship activity
+- **Contact Application** acts as an intersection table between contacts and applications
 
-This allows the application to retain context across workflows. A follow-up, for example, can represent more than a reminder: it can identify who the action relates to, which opportunity it supports, and when it requires attention.
+That separation between future actions and historical interactions became especially useful as the project matured. A contact record can show both what has already happened and what still needs to happen next.
 
-<br>
+#### Dataverse Data Model
 
-#### Data Model
+![Career Development Hub Data Model](../../assets/images/projects/cdh/apps/cdh-datamodel.png)
 
-> ![Career Development Hub Data Model](../../assets/images/projects/cdh/cdh-datamodel.png)
-
-<br>
-
----
-
-<br>
-
-## From SharePoint to Dataverse
-
-The first version of Career Development Hub used SharePoint lists as its backend.
-
-SharePoint worked surprisingly well for the initial implementation and demonstrated that the workflow could be supported without introducing a more complex data platform. For a lightweight deployment with relatively simple relationships, it would remain a viable architecture.
-
-As the application evolved, however, relationships between companies, business groups, contacts, applications, and follow-ups became increasingly important.
-
-I rebuilt the backend using Dataverse to better support:
-
-- Relational data modeling
-- Lookup relationships between records
-- Referential integrity
-- Native Power Platform integration
-- More structured application data
-- Future expansion of the solution
-
-The experience reinforced that platform selection should follow the requirements of the application. SharePoint was sufficient for the initial problem, while Dataverse became the stronger fit as the solution became more relational. I also wanted to get more hands-on with Dataverse when integrating with agents and apps.
-
-> Example Sharepoint Data Model
-> ![Career Development Hub Data Model](../../assets/images/projects/cdh/cdh-sharepoint.png)
-
-<br>
-
----
-
-<br>
-
-## Building with Power Apps Vibe
-
-I built the application using Microsoft's emerging Power Apps Vibe experience, an AI-assisted development environment that generates applications, data models, and supporting code from natural language requirements. 
-
-Rather than building every interface component manually, I worked collaboratively with the AI development environment by defining business requirements, refining generated solutions through iterative prompting, and validating the application's behavior against intended use cases.
-
-I designed and refined the underlying Dataverse data model, tested generated functionality, resolved issues, and made decisions around user experience, workflow design, and overall application architecture.
-
-Throughout the project, I gained practical experience evaluating AI-generated implementations, identifying gaps, improving generated solutions, and balancing low-code and traditional development approaches to deliver a working business application.
-
-The experience strengthened my understanding of how modern Power Platform tools can accelerate solution delivery while still requiring human oversight, business analysis, data modeling expertise, and technical judgment.
-
-#### Power Apps Vibe Limitions 
-While the Vibe development experience significantly accelerated application development, it also gave me a realistic view of the current limitations. As the application grew in complexity, longer development sessions became increasingly resource-intensive. I initially worked from a MacBook but eventually moved to my desktop workstation after experiencing browser instability and crashes.
-
-I also found the development workflow required a different mindset than traditional coding. Generated code was presented in a read-only format, which meant changes had to be made through prompts rather than direct edits. Success depended heavily on providing clear, specific instructions and limiting requests to a small number of actions at a time. More complex troubleshooting scenarios often required breaking problems into smaller steps and iterating toward a solution rather than expecting the platform to autonomously reach the desired end state.
-
-At the same time, these limitations helped me develop stronger skills in requirements gathering, validation, and solution refinement. The platform was particularly effective when integrating Power Platform services and Work IQ MCP capabilities.
-
-<br>
-
-#### PowerApps Vibe Interface
-
-![Career Development Hub Data Model](../../assets/images/projects/cdh/cdh-vibe.png)
 <br>
 
 ---
@@ -291,30 +332,28 @@ At the same time, these limitations helped me develop stronger skills in require
 
 ## Data Management & Administration
 
-Building the primary workflows exposed another requirement: maintaining the data behind the application.
+As the application grew, maintaining the data became its own workflow.
 
-Rather than relying on direct Dataverse table editing, I built a management interface for administrative operations across the system.
+Instead of relying on direct Dataverse table editing, I built a management interface for administrative tasks across the system.
 
-The panel supports functions including:
+The panel supports:
 
 - Bulk record management
 - Bulk status and stage changes
 - Duplicate identification and cleanup
-- Exporting data to a CSV file
+- CSV export
 - Company and business group management
 - Merging duplicate organizational records
 - Reassigning linked records during merges
-- Preventing deletion of records with unresolved dependencies
+- Preventing deletion when unresolved dependencies remain
 
-For example, merging duplicate business groups first moves their associated contacts and applications to the selected destination record before removing the duplicate.
+For example, merging duplicate business groups first reassigns their linked contacts and applications to the destination record before removing the duplicate.
 
-This separated routine career-management workflows from administrative data-maintenance workflows and helped keep the primary interface focused on day-to-day use.
-
-<br>
+This keeps routine career-management workflows separate from the less frequent cleanup and administration tasks behind them.
 
 #### Data Management Panel
 
-> ![Career Development Hub Data Management Panel](../../assets/images/projects/cdh/cdh-datamanagement.png)
+![Career Development Hub Data Management](../../assets/images/projects/cdh/apps/cdh-datamanagement.gif)
 
 <br>
 
@@ -322,31 +361,98 @@ This separated routine career-management workflows from administrative data-main
 
 <br>
 
-## Exploring Multiple Power Platform Approaches
+## How It Got Built: Vibe, Then Claude Code
 
-Because the underlying data was already modeled in Dataverse, I also built a model-driven application against the same tables.
+The Code App started in Microsoft's Power Apps Vibe, an AI-assisted maker experience (currently in preview) that generates an app and its Dataverse connections from a plain-language description. It was later developed with Claude Code with Microsoft's official Power Platform skills and tooling. Both were useful, for different reasons.
 
-The goal was not to create a second production application, but to gain experience implementing the same business problem through a different Power Platform development model.
+Vibe was genuinely strong at two things: building the UI and wiring up the data layer. Describing a screen and getting a working version of it back took minutes, and changes to the Dataverse data model flowed through automatically. Adding a column or a relationship meant the generated services and types were updated for me instead of by hand or through prompts. For getting a real, connected app standing up quickly, it was excellent.
 
-The model-driven application demonstrated how quickly Dataverse data could be turned into a functional business application with native forms, views, navigation, and record management.
+| | **Power Apps Vibe** | **Claude Code + Power Platform skills** |
+|---|---|---|
+| **Setup** | None. Prompt to running app in one browser tab | Local project with a real build and deploy pipeline |
+| **Scope** | The Code App only | The whole solution: Code App, model-driven app, canvas app, flows, Dataverse schema |
+| **Best at** | Building UI fast and keeping the data layer in sync automatically | Working across apps, fixing problems at the source |
+| **Iterating** | Great for small, contained changes | Handles larger changes and refactors without re-prompting from scratch |
+| **Troubleshooting** | Re-prompt and hope; limited visibility into the generated code | Read the actual code, trace the bug, fix it |
+| **Version control** | Lives in the browser session | Every change lands in local files, committed to GitHub |
+| **Trade-off** | Limited control over the SDK and how the app is put together | More setup before the first working screen |
 
-The Code App, by comparison, provided substantially more control over the user experience, interaction patterns, and visual design.
+The version control difference mattered more than I expected. Because Claude Code works directly on local files, every change was immediately visible in my working directory and then could be committed to a GitHub repo. That gave me real history, diffs, and a way to undo a bad change, which is hard to replicate when the app only exists inside a browser session.
 
-| Approach | Power Apps Code App | Model-Driven App |
-| --- | --- | --- |
-| Development model | Code-first | Configuration-first |
-| Primary interface | React / TypeScript | Power Platform components |
-| UX control | High | Structured / opinionated |
-| Dataverse integration | Application-driven | Native |
-| Best fit in this project | Primary user experience | Rapid CRUD and administrative workflows |
+Vibe was the better on-ramp for UI and I would start there again. Claude Code was the more comprehensive tool once the solution outgrew a single app.
 
-Building both against the same data model helped me better understand where different Power Apps approaches fit rather than treating one development model as universally better.
+**Moving off Vibe**
+
+The deciding factor was an SDK limitation. Records created outside the Code App, in the model-driven app, canvas app, or by a Copilot Studio agent, could not be deleted from the Code App. The cause was validation logic inside the generated SDK, which is not editable from within Vibe.
+
+So I took the project files and moved them into a standalone Code App I had full control over. Same app, but with the ability to change the parts Vibe manages on your behalf. The full breakdown is below.
+
+<details>
+<summary>⚙️ Technical Note: Dataverse Record Deletion Failure in Code Apps</summary>
 
 <br>
 
-#### Model-Driven Application
+During testing, record deletion failures were discovered when Dataverse records originated from Model-Driven Apps, Canvas Apps, or Copilot Studio agents rather than the generated Code App.
 
-> ![Career Development Hub Data Model](../../assets/images/projects/cdh/cdh-modelapp.png)
+Analysis using Claude Code and Power Platform tooling traced the issue to UUID validation within the generated SDK. Dataverse sequential GUIDs were being rejected by RFC-compliant UUID validation before requests reached Dataverse, despite being valid record identifiers.
+
+#### Identifier Comparison
+
+**RFC-4122 UUID (Accepted by `uuid.validate()`)**
+
+```text
+3f2b8c9e-4a6d-4f12-9c7b-8d91e2a6f430
+                ^
+                Version 4 UUID
+```
+
+* Generated by the Code App's client-side SDK
+* Follows RFC-4122 UUID version requirements
+* Passes `uuid.validate()`
+* Delete operations succeed
+
+**Dataverse Sequential GUID (Rejected by `uuid.validate()`)**
+
+```text
+aa078335-2f9c-f111-b8db-7ced8d6e75df
+                ^
+                "f" is not a valid RFC UUID version
+```
+
+* Generated by Dataverse, Model-Driven Apps, Canvas Apps, Flows, and Agents
+* Valid Dataverse record identifier
+* Does not meet RFC UUID version requirements
+* Rejected by SDK validation before reaching Dataverse
+
+Analysis revealed that the generated SDK was validating record IDs using RFC UUID version rules rather than Dataverse GUID structure. As a result, valid Dataverse-generated identifiers could fail client-side validation even though Dataverse itself accepted them.
+
+#### Proposed Remediation
+
+The generated framework already supports source-specific identifier validation through the `isValidRecordId` extension point.
+
+```typescript
+isValidRecordId: (recordId: string) =>
+  /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(recordId)
+```
+
+**Why This Works**
+- Validates GUID structure (`8-4-4-4-12`) rather than RFC UUID version compliance
+- Accepts both client-generated UUIDs and Dataverse-generated sequential GUIDs
+- Continues rejecting malformed or invalid identifiers
+- Leverages an existing SDK extension point already used by other data sources
+- Keeps validation source-specific rather than weakening validation globally
+
+**Architectural Consideration**
+
+The change addresses the immediate issue, but the affected SDK files are generated and managed by Power Apps Vibe and cannot be edited from inside it, which is why the app was moved into a standalone Code App to apply the fix. The more durable solution would be a platform-level update to the Dataverse code-generation template so generated SDKs apply Dataverse-compatible GUID validation by default for dataverse connections.
+
+</details>
+
+<br>
+
+#### Power Apps Vibe Interface
+
+![Power Apps Vibe Interface](../../assets/images/projects/cdh/apps/cdh-vibe.png)
 
 <br>
 
@@ -356,39 +462,31 @@ Building both against the same data model helped me better understand where diff
 
 ## Technical Decisions & Lessons Learned
 
-### Model the Relationships, Not Just the Records
+<br>
 
-What initially looked like three simple lists quickly became a relational problem.
+### Use Different App Types for Different Jobs
 
-Contacts belong to organizations, applications target organizations, business groups provide additional context, and follow-ups can exist because of either a relationship or an application.
-
-Designing around those relationships made the system substantially more useful than maintaining independent lists.
+Building all three app types against the same Dataverse backend gave me a much clearer sense of where each one fits than reading about them ever did. The comparison is earlier in this write-up, but the short version is that the app type should follow the job, not personal preference.
 
 <br>
 
-### Choose the Data Platform Based on the Problem
+### AI Speeds Up the Build, Not the Decisions
 
-Building both SharePoint and Dataverse implementations reinforced that a more capable platform is not automatically the right starting point.
-
-SharePoint supported the initial application surprisingly well. Dataverse became valuable when relational modeling and long-term extensibility became more important, particularly in learning the capabilites of Power Platform and Copilot Studio.
+Vibe and Claude Code both moved the work along quickly, but the useful parts of this project still came from deciding what the app should do, catching where generated code was wrong, and knowing when to stop trying to work around a tool's limitation and move off it.
 
 <br>
 
-### User Experience and Data Administration Are Different Problems
+### Small Business Rules Matter
 
-The primary application is optimized around frequent activities such as reviewing opportunities, managing relationships, and completing follow-ups.
+Features such as automatic completion dates, generated interaction names, and read-only record views are not large by themselves, but they reduce friction and keep data more consistent.
 
-Data cleanup, duplicate management, bulk operations, and record merging are less frequent but still necessary.
-
-Separating these into an administrative interface kept those concerns from complicating the primary experience.
+The project reinforced that a useful business application depends as much on those workflow details as it does on the larger architecture.
 
 <br>
 
-### Low-Code and Code-First Development Can Complement Each Other
+### Automation Is Most Useful When It Removes Routine Review
 
-Building a Code App, model-driven application, and multiple data implementations around the same problem gave me a better understanding of Power Platform as an application platform rather than simply a collection of individual tools.
-
-The project also gave me practical experience deciding when configuration, traditional code, AI-assisted development, and platform capabilities each provide the most value.
+The Daily Brief was a good example of using automation for a narrow, practical purpose. The data was already available in Dataverse and Microsoft 365, so the workflow simply brings the most relevant pieces together at the point I need them.
 
 <br>
 
@@ -398,27 +496,23 @@ The project also gave me practical experience deciding when configuration, tradi
 
 ## Next Steps
 
-Career Development Hub is currently designed around my own career workflow, but its architecture creates several opportunities for further development.
-
-### Email & Calendar Integration
-
-Integrate Microsoft 365 services so follow-ups can create or synchronize calendar events and relevant email activity can be connected to contacts and applications.
+<br>
 
 ### Multi-User Support
 
-Extend the current personal application into a multi-user architecture with appropriate ownership, security roles, and record-level access.
+Extend the current personal solution into a multi-user architecture with ownership, security roles, and record-level access. That could make the same underlying model useful for career coaching, transition programs, recruiting teams, or other relationship-driven workflows.
 
-This would allow the same underlying model to support scenarios such as career coaching, transition programs, recruiting teams, or other relationship-driven workflows.
+### Deeper Microsoft 365 Integration
+
+Expand the current calendar and briefing workflows so relevant email and meeting activity can be connected more directly to contacts, applications, and interactions.
 
 ### Embedded Career Agent
 
-I have also built a Career Agent in Copilot Studio that can work with career-management data and workflows.
-
-A future iteration would embed agent capabilities directly into Career Development Hub, allowing users to interact with the system conversationally and perform actions without leaving the application.
+I have also built a Career Agent in Copilot Studio that works with career-management data and workflows.
 
 > **Check out Career Copilot:** [Explore the Career Agent project →](../career-copilot)
 
-This would combine the structured application and Dataverse system of record with an agentic interface for retrieving information, reasoning across career context, and initiating actions.
+A future iteration could bring those agent capabilities directly into Career Development Hub so structured application data and conversational workflows live in the same experience.
 
 <br>
 
@@ -428,8 +522,8 @@ This would combine the structured application and Dataverse system of record wit
 
 ## Project Takeaway
 
-Career Development Hub started as a way to improve my own career-management workflow, but became an opportunity to explore how a modern business application can be designed across the full Power Platform stack.
+Career Development Hub started as a tool for my own career transition and gradually became a practical environment for learning how the pieces of Power Platform fit together in a real solution.
 
-Building the solution required more than creating an interface. It involved defining the business process, modeling relational data, evaluating backend architectures, building multiple application experiences, designing administrative workflows, and considering how automation and agents could extend the system.
+The project now spans data modeling, Code Apps, canvas apps, model-driven apps, JavaScript customization, workflow automation, administration, and Copilot Studio. More importantly, each addition came from an actual workflow problem I ran into while using the system.
 
-Most importantly, the project gave me a practical environment to experiment with newer Power Platform development approaches while solving a problem I was actively experiencing.
+That has made the project more useful to me than a standalone demo. I can build a feature, use it in my own process, find the friction points, and improve it from there.

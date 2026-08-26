@@ -72,7 +72,7 @@ A centralized workbook provided leadership with a quick view of student performa
 
 Instructors could paste full database exports directly into the system. Previously unreadable datasets became structured inputs for the reporting system.
 
-![Raw Database Input](../../assets/images/projects/database-output.jpeg)
+![Raw Database Input](../../assets/images/projects/performance-tracker/database-output.jpeg)
 
 <br>
 
@@ -80,7 +80,7 @@ Instructors could paste full database exports directly into the system. Previous
 
 Provides a snapshot of each class’s most recent unit test performance. This view was used during biweekly sync meetings and shared with service units through SharePoint and Teams.
 
-![Schoolhouse Dashboard](../../assets/images/projects/formatted-view.jpeg)
+![Schoolhouse Dashboard](../../assets/images/projects/performance-tracker/formatted-view.jpeg)
 
 <br>
 
@@ -105,7 +105,7 @@ These reports tracked each class’s progress throughout the year-long curriculu
 
 Updated after each major test to track class-level performance trends and identify students meeting attrition criteria.
 
-![Individual Class Report](../../assets/images/projects/class-view.jpeg)
+![Individual Class Report](../../assets/images/projects/performance-tracker/class-view.jpeg)
 
 <br>
 
@@ -113,7 +113,7 @@ Updated after each major test to track class-level performance trends and identi
 
 Auto-generated summary displaying a student's results across major unit tests and language modalities.
 
-![Individual Student Report](../../assets/images/projects/student-report.jpeg)
+![Individual Student Report](../../assets/images/projects/performance-tracker/student-report.jpeg)
 
 <br>
 
