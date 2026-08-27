@@ -23,6 +23,16 @@
   --color-border-light: rgba(var(--gray-light), 0.1);
   --color-accent-text: var(--accent);
   --color-accent-bg: rgba(var(--accent-rgb), 0.25);
+  --badge-text: #EE8578;
+  /* Lighter than the page: in a dark UI, raised surfaces move toward the
+     light, the same way the cards do. */
+  --sw-header-bg: #262626;
+  /* The accent itself is only 2.74:1 as text on the bar; this clears the 3:1
+     large-text minimum at 4.01:1 while staying in the brand family. */
+  --nav-active: #E05548;
+  /* Heavier alpha than light: a black shadow over a near-black page needs
+     more to register at all. */
+  --sw-header-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 
   /* Translucent surfaces */
   --surface-100: rgba(255, 255, 255, 0.05);

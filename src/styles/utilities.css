@@ -15,15 +15,16 @@
 
 .card-surface:hover { box-shadow: var(--shadow-lg); }
 
-/* Dark theme: stronger base shadow, lighter on hover with accent glow */
-.dark .card-surface,
+/* Dark theme: stronger base shadow, lighter on hover with accent glow.
+   Scoped on [data-theme] only. Listing `.dark .card-surface` alongside it made
+   Tailwind's dark variant claim the selector and emit the rule unscoped, so
+   these dark shadows were landing on the light theme too. */
 [data-theme="dark"] .card-surface {
   box-shadow:
     0 14px 40px rgba(0, 0, 0, 0.55),
     0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
-.dark .card-surface:hover,
 [data-theme="dark"] .card-surface:hover {
   box-shadow:
     0 10px 28px rgba(0, 0, 0, 0.35),
@@ -212,4 +213,4 @@
 }
 .sw-header .internal-links a:hover { color: var(--accent); }
 .sw-header .internal-links a.active,
-.sw-header #mobile-menu a.active { color: var(--accent); }
+.sw-header #mobile-menu a.active { color: var(--nav-active); }

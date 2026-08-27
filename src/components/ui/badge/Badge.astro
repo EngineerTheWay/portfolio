@@ -11,7 +11,11 @@ const base = 'inline-flex items-center justify-center rounded-full font-medium';
 const paddings = size === 'sm' ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm';
 
 const colorByVariant: Record<string, string> = {
-  default: 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/30',
+  // Label colour is its own token: it has to go deeper in the light theme and
+  // lighter in the dark one to clear 4.5:1 against the tint, and --accent-dark
+  // could not absorb that because it also drives the hero gradients. Plain
+  // --accent measured 3.9:1 here, under the minimum.
+  default: 'bg-[var(--accent)]/18 text-[var(--badge-text)] border border-[var(--accent)]/35',
   accent: 'bg-[var(--accent)] text-[var(--accent-foreground)] border border-[var(--accent)]',
   info: 'bg-[var(--info)] text-[var(--info-foreground)] border border-[var(--info)]',
   success: 'bg-[var(--success)] text-[var(--success-foreground)] border border-[var(--success)]',

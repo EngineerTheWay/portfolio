@@ -22,6 +22,12 @@
 	font-style: normal;
 	font-display: swap;
 }
+/* Keeps anchor targets clear of the sticky header. Without this every
+   table-of-contents jump and #hash link lands underneath the bar. */
+html {
+	scroll-padding-top: calc(var(--sw-header-h) + 1rem);
+}
+
 body {
 	font-family: "Atkinson", sans-serif;
 	margin: 0;

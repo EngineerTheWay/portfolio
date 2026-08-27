@@ -3,6 +3,13 @@
   /* Brand */
   --accent: #FF8A4C;
   --accent-dark: #F97316;
+
+  /* Height of the sticky site header. Global so anchor offsets and the
+     drawer/scrim can all derive from one value. */
+  --sw-header-h: 70px;
+  --badge-text: var(--accent-dark);
+  --nav-active: var(--accent);
+  --sw-header-shadow: 0 4px 10px rgba(16, 24, 40, 0.07);
   --accent-rgb: 255, 138, 76;
 
   /* Neutrals (light baseline; dark overrides live in themes/dark.css) */

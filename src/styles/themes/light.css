@@ -4,32 +4,38 @@
     --accent-dark: #8A241E;
     --accent-rgb: 192, 54, 44;
     
-  --black: 15, 18, 25;
+  --black: 26, 31, 43;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
   --gray-dark: 34, 41, 57;
 
-  --background: #ffffff;
-  --foreground: #0f1219;
+  --background: #F7F8FA;
+  --foreground: #1A1F2B;
   --card: #ffffff;
-  --card-foreground: #0f1219;
+  --card-foreground: #1A1F2B;
   --popover: #ffffff;
-  --popover-foreground: #0f1219;
+  --popover-foreground: #1A1F2B;
   --primary: var(--accent);
   --primary-foreground: #ffffff;
   --secondary: #F6A77A; /* softened to harmonize with red-orange */
   --secondary-foreground: #0f1219;
   --muted: rgb(246, 247, 249);
   --muted-foreground: rgb(96, 115, 159);
-  --accent-foreground: #0f1219;
+  --accent-foreground: #1A1F2B;
 
   /* Semantic Color Tokens for components */
-  --color-text-primary: rgb(var(--black));
-  --color-text-secondary: rgb(var(--gray-dark));
-  --color-text-muted: rgb(var(--gray));
+  --color-text-primary: #1A1F2B;
+  --color-text-secondary: #333B4D;
+  --color-text-muted: #5A6478;
   --color-bg-primary: var(--background);
   --color-bg-secondary: rgba(0, 0, 0, 0.03);
   --color-bg-tertiary: rgba(0, 0, 0, 0.05);
+  --color-accent-bg: rgba(var(--accent-rgb), 0.12);
+  --badge-text: #8A241E;
+  /* A shade darker than the page so the bar reads as chrome, not canvas. */
+  --sw-header-bg: #ECEFF3;
+  --nav-active: var(--accent);
+  --sw-header-shadow: 0 4px 10px rgba(16, 24, 40, 0.07);
 
   /* Borders */
   --color-border: rgba(0, 0, 0, 0.12);
@@ -44,7 +50,10 @@
   --error: #ef4444;
   --error-foreground: #ffffff;
 
-  --border: rgb(229, 233, 240);
+  /* Darkened from rgb(229,233,240): against the #ECEFF3 header that value sat
+     at 1.06:1 and read as no line at all. This lands ~1.33:1 on the header and
+     ~1.5:1 on cards — a hairline on every surface it is used on. */
+  --border: #C9D1DE;
   --input: rgb(229, 233, 240);
   --outline: var(--accent);
 }
