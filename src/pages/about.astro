@@ -1,0 +1,225 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/sections/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+import ArrowSeparator from '../components/ui/separator/ArrowSeparator.astro';
+import GlowLineSeparator from '../components/ui/separator/GlowLineSeparator.astro';
+import { SITE_TITLE } from '../consts';
+
+import mePhoto from '../assets/images/me.jpg';
+import lassenPhoto from '../assets/images/about/lassen.JPEG';
+import montereyPhoto from '../assets/images/about/monterey.JPEG';
+import millsPhoto from '../assets/images/about/mills.JPEG';
+import dogsPhoto from '../assets/images/about/dogs.JPEG';
+import redwoodsPhoto from '../assets/images/about/redwoods.JPEG';
+import japanPhoto from '../assets/images/about/japan.JPEG';
+import dliPhoto from '../assets/images/about/dli.JPEG';
+
+
+const description =
+  'Military linguist and cyber analyst turned business systems builder — the longer version.';
+---
+
+<html lang="en" data-theme="dark" class="dark">
+  <head>
+    <BaseHead title={`About – ${SITE_TITLE}`} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- ===================================================================
+           INTRO — photo beside the story, not stacked above it.
+      ==================================================================== -->
+      <section class="w-full py-10 md:py-14">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-8 lg:gap-12 items-center">
+            <div class="relative aspect-square w-full max-w-sm mx-auto lg:max-w-none rounded-2xl overflow-hidden shadow-[var(--shadow-lg)]">
+              <Image
+                src={mePhoto}
+                alt="Caleb Way"
+                width={700}
+                height={700}
+                class="absolute inset-0 w-full h-full! object-cover"
+              />
+            </div>
+
+            <div>
+              <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                <span class="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] bg-clip-text text-transparent">
+                  About Me
+                </span>
+              </h1>
+
+              <p class="text-[color:var(--color-text-secondary)] mb-4">
+                Since I was a teenager, I've been passionate about technology. Back then, 
+                that meant running online gaming communities, managing servers and forums, 
+                and constantly tinkering with whatever I could get my hands on. Today, it means
+                developing intelligent applications and AI-powered solutions across Microsoft 365, 
+                Power Platform, and Copilot Studio.
+              </p>
+              <p class="text-[color:var(--color-text-secondary)] mb-4">
+                What I enjoy most is taking an idea and turning it into a system people actually 
+                enjoy using. To me, the human side of technology is just as important as the technology
+                 itself. Good systems should reinforce relationships, remove friction, and give people 
+                 more time to focus on the stuff that matters. And if people are going to spend time 
+                 in a system every day, it should feel good to use.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ArrowSeparator />
+
+      <!-- ===================================================================
+           HOW I GOT HERE — text spans two columns, photos take the third as
+           squares matching the Outside Work grid. Below lg the photos drop
+           beneath the prose rather than squeezing beside it.
+      ==================================================================== -->
+      <section class="w-full py-8">
+        <div class="mx-auto max-w-6xl px-4">
+          <h2 class="text-3xl md:text-4xl font-semibold text-center mb-8 text-foreground">
+            How I Got Here
+          </h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            <div class="lg:col-span-2 space-y-4 text-[color:var(--color-text-secondary)]">
+              <p>
+                You might be wondering how a guy with a bachelor's degree in Persian-Farsi
+                and a background in intelligence ended up building business systems.
+              </p>
+              <p>
+                I joined the Air Force in 2017 as a linguist and moved to Monterey,
+                California, to study Persian-Farsi at the Defense Language Institute.
+                After graduating, I spent my first enlistment supporting cyber
+                operations as a cryptologic language analyst and later as a
+                cyber intelligence analyst supporting joint operations with the Marines.
+              </p>
+              <p>
+                By the end of that enlistment, I planned to leave the Air Force and
+                pursue Computer Science. Instead, I was given the opportunity to return
+                to the Defense Language Institute, finish my bachelor's degree, and
+                come back to where my career started as an instructor. It was too good an opportunity to pass up.
+              </p>
+              <p>
+                During my tenure as an instructor, I kept gravitating toward technology. I completed a
+                master's degree in Information Technology at Florida Tech and started
+                building tools to solve problems around me: automating manual
+                processes, improving how teams managed information, and creating
+                systems that made day-to-day work easier for our teams.
+              </p>
+              <p>
+                That was where things clicked for me and where I wanted to take my career: 
+                the space between the business problem, the human experience, and the technical 
+                implementation: understanding how people work, designing a better system, and then actually building it.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <!-- Military photo 1 -->
+              <div class="relative aspect-square rounded-xl overflow-hidden">
+                <Image
+                  src={montereyPhoto}
+                  alt="Big Sur, California"
+                  width={500}
+                  height={500}
+                  class="absolute inset-0 w-full h-full! object-cover"
+                />
+              </div>
+              <!-- Military photo 2 -->
+              <div class="relative aspect-square rounded-xl overflow-hidden">
+                <Image
+                  src={dliPhoto}
+                  alt="Defense Language Institute, Monterey, California"
+                  width={500}
+                  height={500}
+                  class="absolute inset-0 w-full h-full! object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ArrowSeparator />
+
+      <!-- ===================================================================
+           OUTSIDE WORK — a photo grid rather than another prose block, so the
+           section reads as personal at a glance.
+      ==================================================================== -->
+      <section class="w-full py-8">
+        <div class="mx-auto max-w-6xl px-4">
+          <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4 text-foreground">
+            Outside Work
+          </h2>
+
+          <p class="text-center text-[color:var(--color-text-secondary)] mb-8">
+            Outside of work, I enjoy hiking, traveling, PC gaming, and finding new
+            technology to tinker with. I'm engaged to my partner, Andres, and we have
+            two dogs: Atlas, a 2-year-old Dachshund, and Artemis, a 7-year-old rescue
+            whose breed is your guess as much as ours. We're both excited to see where 
+            the next chapter of life takes us.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="relative aspect-square rounded-xl overflow-hidden">
+              <Image
+                src={japanPhoto}
+                alt="Osaka, Japan"
+                width={700}
+                height={700}
+                class="absolute inset-0 w-full h-full! object-cover"
+              />
+            </div>
+            <!-- Spans two columns on desktop for a wider shot -->
+            <div class="relative aspect-square lg:aspect-auto lg:col-span-2 rounded-xl overflow-hidden">
+              <Image
+                src={millsPhoto}
+                alt="The Mills Lake, Rocky Mountain National Park, Colorado"
+                width={1400}
+                height={700}
+                class="absolute inset-0 w-full h-full! object-cover"
+              />
+            </div>
+
+            <div class="relative aspect-square rounded-xl overflow-hidden">
+              <Image
+                src={redwoodsPhoto}
+                alt="Hiking in Redwood National and State Parks"
+                width={700}
+                height={700}
+                class="absolute inset-0 w-full h-full! object-cover"
+              />
+            </div>
+            <div class="relative aspect-square rounded-xl overflow-hidden">
+              <Image
+                src={lassenPhoto}
+                alt="Hiking in Lassen Volcanic National Park"
+                width={700}
+                height={700}
+                class="absolute inset-0 w-full h-full! object-cover"
+              />
+            </div>
+
+
+            <div class="relative aspect-square rounded-xl overflow-hidden">
+              <Image
+                src={dogsPhoto}
+                alt="Our dogs, Atlas and Artemis"
+                width={700}
+                height={700}
+                class="absolute inset-0 w-full h-full! object-cover"
+              />
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <GlowLineSeparator />
+    </main>
+    <Footer />
+  </body>
+</html>
