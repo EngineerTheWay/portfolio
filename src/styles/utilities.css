@@ -147,6 +147,26 @@
   background: color-mix(in oklab, var(--color-bg-secondary) 75%, transparent);
 }
 
+/* Comparison tables cannot usefully shrink to a phone-width column — four or
+   five columns of prose just become unreadable slivers. Below md the table
+   becomes its own scroll container at its natural width, so cells stay legible
+   and the reader swipes sideways instead. */
+@media (max-width: 767px) {
+  .prose table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.6rem 0.75rem;
+    min-width: 9rem;
+  }
+}
+
 .sw-post-nav .sw-nav-btn {
   display: flex; align-items: center; gap: .5rem; padding: .75rem 1rem;
   border: 1px solid var(--color-border-light); border-radius: 12px;
