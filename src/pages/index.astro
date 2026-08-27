@@ -17,13 +17,6 @@ import Projects from '../components/sections/Projects.astro';
 import ArrowSeparator from '../components/ui/separator/ArrowSeparator.astro'
 import GlowLineSeparator from '../components/ui/separator/GlowLineSeparator.astro'
 
-// Logos
-import astroLogo from '../assets/logos/Astro-logo.svg';
-import googleAdsLogo from '../assets/logos/GoogleAds-logo.svg';
-import posthogLogo from '../assets/logos/posthog-logo.svg';
-import notionLogo from '../assets/logos/Notion-logo.svg';
-import figmaLogo from '../assets/logos/Figma-logo.svg';
-
 // Top two case studies by priority, shown on the homepage as proof before the
 // experience narrative. The full set lives on /projects.
 const featuredProjects = (await getCollection('projects'))
@@ -55,7 +48,7 @@ const featuredProjects = (await getCollection('projects'))
 		<main>
       <HeroSection
         title="Hi, I'm Caleb Way."
-        subtitle="Military linguist and intel analyst turned business systems builder. I specialize in building intelligent applications, automations, and agentic workflows in Microsoft 365, Power Platform and Copilot Studio."
+        subtitle="Military linguist and intel analyst turned business systems builder. I specialize in building intelligent applications and agentic AI solutions across Microsoft 365, Power Platform and Copilot Studio."
         showCTA
         primaryCTA={{ text: 'View All Projects', href: '/projects' }}
         secondaryCTA={{ text: 'Read Insights', href: '/blog' }}
