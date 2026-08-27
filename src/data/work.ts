@@ -11,7 +11,25 @@ export const workIcons = {
 
 export const work = [
     {
+      // TODO: replace the placeholder description and region before publishing.
+      title: "Cloud Solution Architect Fellow",
+      year: "2026",
+      company: "Microsoft",
+      region: "United States (Remote)",
+      description:
+        "Selected for a competitive Hiring Our Heroes fellowship with Microsoft Federal’s AI and Business Solutions organization. Gaining hands-on exposure to customer discovery, solution design, technical demonstrations, and adoption while building deeper expertise in business applications and agentic AI.  ",
+      technologies: [
+        "Power Platform",
+        "Copilot Studio",
+        "Dynamics 365",
+        "Microsoft 365",
+        "Business Applications",
+        "AI Solutioning"
+      ],
+    },
+    {
       title: "Academic Program Manager",
+      year: "2025",
       company: "Defense Language Institute",
       region: "Monterey, CA",
       description:
@@ -20,12 +38,13 @@ export const work = [
         "Workflow Automation",
         "Process Improvement",
         "Risk Analysis",
-        "Microsoft 365 Enterprise",
+        "Microsoft 365",
         "Power Platform"
       ],
     },
     {
       title: "Operations Superintendent",
+      year: "2024",
       company: "Defense Language Institute — Washington",
       region: "Washington, D.C.",
       description:
@@ -33,12 +52,13 @@ export const work = [
       technologies: [
         "Workflow Automation",
         "Process Improvement",
-        "Microsoft 365 Enterprise",
+        "Microsoft 365",
         "Power Platform"
       ],
     },
     {
       title: "Military Language Instructor",
+      year: "2023",
       company: "Defense Language Institute",
       region: "Monterey, CA",
       description:
@@ -46,12 +66,13 @@ export const work = [
       technologies: [
         "Instruction & Training",
         "Stakeholder Management",
-        "Microsoft 365 Enterprise",
+        "Microsoft 365",
         "Excel"
       ],
     },
     {
       title: "Cyber Intelligence Analyst",
+      year: "2022",
       company: "Marine Forces Cyber Command (MARFORCYBER)",
       region: "Fort Meade, MD",
       description:
@@ -66,6 +87,7 @@ export const work = [
     },
     {
       title: "Cryptologic Language Analyst",
+      year: "2019",
       company: "United States Cyber Command (USCYBERCOM)",
       region: "Fort Gordon, GA",
       description:

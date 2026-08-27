@@ -1,31 +1,32 @@
 export const studies = [
     {
-      title: "M.S. in Information Technology",
+      title: "M.S. Information Technology",
       institution: "Florida Institute of Technology",
       description:
-        "Focus on enterprise information systems and cybersecurity, with broad exposure to business analysis and project management.",
+        "Focus on enterprise information systems and cybersecurity, with broad exposure to business analysis, IT project management, and enterprise applications.",
       tags: [
         "Information Technology",
         "Cybersecurity",
-        "IT Project Management",
+        "Project Management",
+        "Databases",
         "Business & Systems Analysis",
         "Cloud Computing",
-        "Databases",
+        "Information Systems"
       ],
     },
   {
-    title: "B.A. in Foreign Language",
+    title: "B.A. Foreign Language",
     institution: "Defense Language Institute",
     description:
-      "Completed 64 weeks of intensive foreign language study in Persian-Farsi. Completed additional transfer credits in Computer Science and Business Administration at the University of Maryland.",
+      "Completed 64 weeks of intensive foreign language study in Persian-Farsi. Completed additional transfer credits in Computer Science and Business Admin.",
     tags: [
       "Foreign Language",
       "Persian-Farsi",
       "Intelligence Analysis",
       "Literary Analysis",
-      "Introductory Programming",
+      "Object-Oriented Programming",
       "Technical Writing",
-      
+      "Business Administration"
     ],
   },
   

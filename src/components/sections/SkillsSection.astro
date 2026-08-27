@@ -1,6 +1,4 @@
 ---
-import Carousel from '../ui/carousel/Carousel.astro';
-import { logos } from '../../data/logos';
 interface SkillItem {
   icon: string; // inline SVG
   title: string;
@@ -21,16 +19,12 @@ const { title, skills } = Astro.props as Props;
       <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 text-foreground">{title}</h2>
     )}
   
-    <div class="mb-6">
-      <Carousel tools={logos} />
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {skills.map((skill) => (
         <div class="card-surface p-6 group transition-transform duration-200 hover:-translate-y-1 hover:elevate-lg">
           <div class="flex flex-col items-center text-center">
             <div class="mb-4 rounded-xl size-[48px] flex items-center justify-center text-[var(--accent)] opacity-90 transition-all duration-300 will-change-transform group-hover:scale-110 group-hover:opacity-100 [&>svg]:w-6 [&>svg]:h-6" style="background: rgba(var(--accent-rgb),0.08);" set:html={skill.icon} />
-            <h3 class="text-xl font-semibold text-foreground mb-2">{skill.title}</h3>
+            <h3 class="skill-title font-semibold text-foreground mb-2">{skill.title}</h3>
             <p class="text-[color:var(--color-text-muted)] leading-relaxed max-w-prose">{skill.description}</p>
           </div>
         </div>
@@ -39,4 +33,13 @@ const { title, skills } = Astro.props as Props;
   </div>
 </section>
 
-
+<style>
+  /* global.css sizes h3 at 1.75em and sits outside a cascade layer, so it beats
+     Tailwind's layered `text-xl` no matter the specificity. A scoped class rule
+     is unlayered too, and wins on specificity, without touching heading sizes in
+     the case studies and blog posts. */
+  .skill-title {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+</style>
