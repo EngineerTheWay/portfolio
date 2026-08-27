@@ -7,7 +7,7 @@ techStack:
   - Microsoft 365
 priority: 10
 icon: ../../assets/icons/Excel-icon.svg
-ctaText: "View Solution →"
+ctaText: "View Project →"
 ---
 
 <br>

@@ -5,12 +5,20 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
 ---
 
 <style>
+/* Sticky because the case studies run very long — on mobile the hamburger is
+   the only navigation there is, and a header that scrolls away leaves a reader
+   with none at all. --sw-header-h lives in tokens.css; the drawer and scrim
+   below hang off it, as does the anchor offset in global.css. */
 .sw-header {
-  /* Shared by the bar itself and by the drawer/scrim, which hang off the
-     bottom edge of the bar. Changing the bar height moves them together. */
-  --sw-header-h: 70px;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 70;
+  background: var(--sw-header-bg);
+  /* Cast downward only, onto whatever scrolls beneath. The bar spans the full
+     width and sits at the viewport top, so the blur that extends past its own
+     left, right and top edges is never on screen — what reads is a soft edge
+     under the bar, not a halo around it. */
+  box-shadow: var(--sw-header-shadow);
 }
 
 /* The desktop bar takes its height from the padded nav links, which are hidden
@@ -35,7 +43,7 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
   width: 75%;
   max-width: 320px;
   z-index: 60;
-  background: var(--color-bg-primary);
+  background: var(--sw-header-bg);
   border-left: 1px solid var(--border);
   /* Separates the drawer from the bar above it, continuing the header rule
      across the panel rather than stopping at the scrim. Uses --border, the
@@ -143,7 +151,7 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
 }
 
 .mobile-drawer .drawer-row.active {
-  color: var(--accent);
+  color: var(--nav-active);
 }
 
 .mobile-drawer .drawer-social {
@@ -155,7 +163,7 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
 }
 </style>
 
-<header class="bg-background text-foreground border-b sw-header">
+<header class="text-foreground border-b sw-header">
     <nav class="mx-auto max-w-6xl px-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
             <a class="no-underline hover:opacity-90 flex items-center gap-2" href="/" aria-label="Home">
@@ -163,8 +171,9 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
             </a>
             <div class="internal-links hidden md:flex items-center gap-2 ml-1">
                 <HeaderLink href="/" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Home</HeaderLink>
-                <HeaderLink href="/projects" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Solutions</HeaderLink>
+                <HeaderLink href="/projects" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Projects</HeaderLink>
                 <HeaderLink href="/blog" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Insights</HeaderLink>
+                <HeaderLink href="/about" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">About</HeaderLink>
                 <a href="#contact" class="px-2 py-3 text-[21px] text-center text-[color:var(--color-text-secondary)] no-underline">Contact</a>
             </div>
         </div>
@@ -202,8 +211,9 @@ import ThemeToggle from '../ui/button/ThemeToggle.astro';
     <div id="mobile-menu" class="mobile-drawer md:hidden" inert>
         <nav class="flex flex-col" aria-label="Mobile">
             <HeaderLink href="/" class="drawer-row no-underline">Home</HeaderLink>
-            <HeaderLink href="/projects" class="drawer-row no-underline">Solutions</HeaderLink>
+            <HeaderLink href="/projects" class="drawer-row no-underline">Projects</HeaderLink>
             <HeaderLink href="/blog" class="drawer-row no-underline">Insights</HeaderLink>
+            <HeaderLink href="/about" class="drawer-row no-underline">About</HeaderLink>
             <a href="#contact" class="drawer-row no-underline">Contact</a>
         </nav>
         <div class="drawer-social">

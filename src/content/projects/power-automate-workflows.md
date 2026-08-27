@@ -7,7 +7,7 @@ techStack:
   - Microsoft 365
 priority: 9
 icon: ../../assets/logos/Power_Automate.svg
-ctaText: "View Solution →"
+ctaText: "View Project →"
 ---
 
 <br>

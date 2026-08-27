@@ -8,7 +8,7 @@ techStack:
   - Microsoft 365
 priority: 2
 icon: ../../assets/logos/Copilot_Studio.svg
-ctaText: "View Solution →"
+ctaText: "View Project →"
 sourceLink: "https://github.com/EngineerTheWay/CareerDevelopmentHub/tree/main/agent"
 ---
 

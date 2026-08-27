@@ -8,7 +8,7 @@ techStack:
   - Dataverse
 priority: 1
 icon: ../../assets/logos/PowerApps.svg
-ctaText: "View Solution →"
+ctaText: "View Project →"
 sourceLink: "https://github.com/EngineerTheWay/CareerDevelopmentHub/tree/main"
 ---
 
@@ -484,7 +484,7 @@ The project reinforced that a useful business application depends as much on tho
 
 <br>
 
-### Automation Is Most Useful When It Removes Routine Review
+### Automation Helps Review Disparate Data Quickly
 
 The Daily Brief was a good example of using automation for a narrow, practical purpose. The data was already available in Dataverse and Microsoft 365, so the workflow simply brings the most relevant pieces together at the point I need them.
 
