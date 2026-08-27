@@ -29,9 +29,9 @@ Nothing about the logic changed, and nothing technically “broke.” The system
 
 ### Designing under real constraints
 
-In an ideal environment, this would be solved with dedicated service accounts. In a government setting, that option wasn’t available. That constraint made the risk unavoidable and forced me to rethink how I approach automation design.
+In an ideal environment, this would be solved with dedicated service accounts for a shared application. In a government setting, that option wasn’t available. That constraint made the risk unavoidable and forced me to rethink how I approach automation design.
 
-Instead of focusing purely on uptime, I started designing for survivability. I centralized automations into managed Power Platform solutions and created unauthenticated backups that could be restored or reassigned if access was lost. 
+I centralized our automations into managed Power Platform solutions owned by the M365 security group and created shared backups that could be restored or reassigned if access was lost. 
 
 ### What this changed in my thinking
 

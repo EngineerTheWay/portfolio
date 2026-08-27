@@ -1,6 +1,6 @@
 ---
 title: "Professional Portfolio"
-description: "Started from an Astro template and rebuilt its projects system as a typed content collection, adding the slug-based routing, case study layout, and Cloudflare deployment it did not have."
+description: "Rebuilt an Astro template into a content-driven portfolio site for sharing projects, insights, and my career background. Hosted on Cloudflare Pages."
 techStack:
   - Astro
   - TypeScript
@@ -8,21 +8,13 @@ techStack:
   - Cloudflare
 priority: 3
 icon: ../../assets/icons/Astro-logo.svg
-ctaText: "View Solution →"
+ctaText: "View Project →"
 sourceLink: "https://github.com/EngineerTheWay/portfolio"
 ---
 
-<br>
+A customized Astro portfolio and blog for case studies, professional insights, and ongoing projects. The template shipped with a working blog but handled projects as a hardcoded array with no detail pages, so most of the work went into replacing that with a real content collection, then building the reading, navigation, and UI/UX pieces around it.
 
-## Overview
-
-This site started as a fork of an open-source Astro template. I want to be direct about that, because the interesting part of the project is what happened next: deciding which parts of the template were worth keeping and which ones did not hold up.
-
-The template had a well-built blog. Posts lived in an Astro content collection with a validated schema, slug-based routing, pagination, categories, and tags. It was the right architecture.
-
-Its projects system was nothing like that. Projects were a hardcoded array in a TypeScript file, rendered inline into a single static page, with no detail pages at all.
-
-That mismatch is what this project is about. I rebuilt projects to match the standard the template had already set for its blog, then built the routing and layout layer that neither section had.
+> Forked from [guihubie's Astro template](https://github.com/guihubie/free-astro-template).
 
 <br>
 
@@ -30,141 +22,130 @@ That mismatch is what this project is about. I rebuilt projects to match the sta
 
 <br>
 
-## Problem
+### Highlights
 
-The template shipped projects as a static array in `src/data/projects.ts`:
-
-```ts
-export const projects = [
-  {
-    title: "Workflow Automation Orchestrator (n8n)",
-    techStack: "n8n • Node.js • TypeScript • PostgreSQL",
-    description: "Event-driven workflows for data sync, notifications...",
-    ctaText: "View Repo →",
-    ctaLink: "#",
-    icon: N8nIcon
-  },
-  // ...
-];
-```
-
-A `Projects.astro` section mapped over that array and rendered the card markup inline. `src/pages/portfolio.astro` displayed the grid. That was the entire system.
-
-Four things about it did not work for case studies:
-
-- **`techStack` was a single delimited string.** Rendering it as individual badges meant splitting on a bullet character at display time.
-- **`ctaLink` pointed at `#`.** The template's sample projects had nowhere to go, because there were no project pages to link to.
-- **Icons were imported as raw SVG strings** and injected with `set:html`, which skips Astro's asset handling entirely.
-- **There were no detail pages.** A project was a card and nothing more. I needed long-form writeups with images, tables, and headings.
-
-The template already demonstrated the correct pattern one directory over, in its blog collection. Projects just had not been built that way.
-
-<br>
-
----
-
-<br>
-
-## Solution
-
-I replaced the array with a content collection, so a project became a Markdown file validated at build time rather than an object in a TypeScript file.
-
-```ts
-const projects = defineCollection({
-  loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      techStack: z.array(z.string()).optional(),
-      icon: image().optional(),
-      ctaText: z.string().optional(),
-      sourceLink: z.string().optional(),
-      priority: z.number().optional(),
-    }),
-});
-```
-
-Then deleted `src/data/projects.ts` and `src/pages/portfolio.astro`.
-
-<br>
-
-### What Changed in the Schema
-
-Each field was a deliberate departure from how the template modeled the same data.
-
-| | **Template** | **This site** | **Why** |
-|---|---|---|---|
-| `techStack` | One string, bullet-delimited | `z.array(z.string())` | Each entry renders as its own badge without parsing a display string |
-| `icon` | Raw SVG via `?raw` import | Astro's `image()` helper | Paths resolve at build time, so a bad reference fails the build instead of rendering nothing |
-| Link out | `ctaLink: "#"` | `sourceLink` optional | Present renders a source button, absent renders nothing — no dead placeholder links |
-| Ordering | Array position | `priority: z.number()` | Order is a property of the content, not of where it sits in a file |
-
-`sourceLink` is the one I use most as a test of whether the model is right. It is a single optional key, and it controls a button in two separate places: the card on the projects index and the header of the case study page. Adding a repository link to a project is one line of frontmatter, and both surfaces update. Nothing renders when it is absent.
-
-<br>
-
-### Routing and Layout
-
-The template had no project detail pages, so this part was new construction rather than a rewrite:
-
-- **`src/pages/projects/[slug].astro`** — dynamic routes generated from the collection
-- **`src/pages/projects/index.astro`** — the projects index, replacing the old static page
-- **`src/layouts/ProjectsPost.astro`** — the case study layout, with the title block, tech-stack badges, icon, and source link in the header
-
-I also pulled the card markup out of `Projects.astro`, where it had been written inline, into its own **`ProjectCard.astro`** component. The card and the case study layout now read from the same frontmatter and present it differently — the card shows the description and CTAs, the layout shows badges and the full body.
-
-The template's `Button` component already took `variant` and `size` props, which meant the primary CTA and the secondary source-code link needed no new component. That one I kept as-is.
-
-<br>
+- Projects hub with slug-based case studies, tech-stack badges, and optional repo links
+- Auto-generated table of contents on case studies and blog posts, with scroll tracking
+- Sticky header with a slide-out mobile menu
+- Light and dark themes, contrast-checked against WCAG AA
+- Homepage that leads with the work, then the career narrative
+- Dedicated About page with a photo-led layout
+- Improved blog system with cleaner navigation and pagination <br><br>
 
 ### Deployment
 
-The template was configured for a static build with `site: 'https://example.com'`. I added the Cloudflare adapter and pointed it at the real domain:
+- Hosted on **Cloudflare** via the Astro Cloudflare adapter
+- Automated builds triggered from GitHub `main`
+- Upgraded Astro 5.12 → 5.18 along with the MDX, RSS, and sitemap integrations <br><br>
 
-```js
-export default defineConfig({
-  adapter: cloudflare(),
-  site: 'https://calebway.io',
-  integrations: [mdx(), sitemap()],
-});
+### Key Updates
+
+**Projects system**
+
+- Replaced `data/projects.ts` (a static array with placeholder `#` links) with a `projects` content collection
+- Added a Zod schema: `techStack` as an array instead of a delimited string, `icon` through Astro's image helper, plus optional `sourceLink` and `priority`
+- New `ProjectCard` component for the index and a `ProjectsPost` layout for long-form case studies
+- New `/projects` index and `/projects/[slug]` routes; removed the old single `portfolio.astro` page
+- Renamed "Solutions" to "Projects" throughout, since a *solution* means something specific in the Power Platform
+
+**Reading and navigation**
+
+- New `TableOfContents` component, built from Astro's build-time headings, used on both case studies and blog posts. Highlights the current section while scrolling, sits in the right margin, and hides below 1366px
+- Header is now sticky, with `scroll-padding-top` so anchor links don't land under it
+- Mobile menu rebuilt as a right-side drawer (75% width, 320px max) with a scrim, scroll lock, and close on Escape, scrim, or link
+- Nav links reserve their bold width so the active page doesn't shift the row
+
+**Homepage**
+
+- Added a Featured Projects section showing the top two case studies by `priority`, so the work appears before the résumé
+- Moved the tool carousel to lead that section, putting the logos directly above the projects built with them
+- Skills expanded to six cards in three columns, with one-line descriptions
+- Experience timeline gained a year column in a widened rail
+
+**About page**
+
+- New standalone page with three deliberately different layouts: photo beside the intro, prose across two columns with photos in the third, and a photo grid for the personal section
+- Both grids stack early rather than squeezing, moving photos above or below the text
+
+**Theming**
+
+- Reworked the light theme: off-white page background, softened text tokens, and darker borders
+- Fixed badges failing WCAG AA contrast, and a card shadow written for dark mode that was rendering in light mode
+- Header sits a shade off the page background in both themes, with a soft shadow beneath
+
+**Blog and content**
+
+- Added a `featured` flag to the blog schema
+- Added a `priority` flag to project cards to control card presentation order
+- Consistent "← All Insights" back-navigation on post layouts
+- Replaced all template sample content and removed the leftover component demo page
+
+**Housekeeping**
+
+- Pointed `robots.txt` at this site's sitemap rather than the upstream template's
+- Removed four favicon references to files that did not exist
+
+<br>
+
+<details>
+<summary>📂 File Tree (Changes & Additions)</summary>
+
+```bash
+src/
+├── content.config.ts                    # Added projects collection + schema
+├── consts.ts                            # Site title/description
+├── assets/
+│   ├── icons/                           # Custom SVGs for tech/tool badges
+│   └── images/
+│       ├── about/                       # New — About page photography
+│       ├── blog/                        # Post hero images
+│       └── projects/                    # Case study screenshots, per project
+├── components/
+│   ├── BaseHead.astro                   # OpenGraph image, favicon cleanup
+│   ├── sections/
+│   │   ├── Header.astro                 # Sticky bar, drawer menu, socials
+│   │   ├── HeaderLink.astro             # Active state without layout shift
+│   │   ├── Footer.astro                 # Trimmed + simplified
+│   │   ├── Projects.astro               # Reads the collection, not an array
+│   │   ├── SkillsSection.astro          # Six cards, three columns
+│   │   ├── WorkExperience.astro         # Timeline wrapper
+│   │   └── Studies.astro
+│   └── ui/
+│       ├── badge/Badge.astro            # Contrast-fixed tech badges
+│       ├── card/ProjectCard.astro       # New — project card layout
+│       ├── carousel/Carousel.astro      # Tool logo strip
+│       ├── timeline/Timeline.astro      # Year column in a widened rail
+│       └── toc/TableOfContents.astro    # New — auto table of contents
+├── content/
+│   ├── blog/                            # Real posts (template samples removed)
+│   └── projects/                        # New — case studies (MD/MDX)
+├── data/
+│   ├── projects.ts                      # Removed — replaced by the collection
+│   ├── skills.ts                        # Six capabilities
+│   └── work.ts                          # Roles with start years
+├── layouts/
+│   ├── BlogPost.astro                   # Back-nav + table of contents
+│   └── ProjectsPost.astro               # New — case study layout
+├── pages/
+│   ├── 404.astro                        # Added "View Projects" button
+│   ├── about.astro                      # New — About page
+│   ├── demo.astro                       # Removed — template showcase
+│   ├── portfolio.astro                  # Removed — superseded by /projects
+│   ├── blog/
+│   │   ├── [...slug].astro              # Consistent back-navigation
+│   │   ├── category/[category].astro
+│   │   ├── tag/[tag].astro
+│   │   └── page/[page].astro
+│   └── projects/
+│       ├── index.astro                  # New — projects index
+│       └── [slug].astro                 # New — individual case studies
+└── styles/
+    ├── tokens.css                       # Shared tokens (header height, accents)
+    ├── utilities.css                    # Card surfaces, header, badges
+    ├── global.css                       # Anchor offset for the sticky header
+    └── themes/
+        ├── dark.css                     # Accent + surface updates
+        └── light.css                    # Reworked backgrounds, text, borders
 ```
 
-Builds trigger from `main`. The adapter is the part worth noting — almost everything on the site is prerendered today, which is the right default, but running on an adapter rather than a pure static build means a page that needs to run server-side can, without migrating the site first.
-
-I also moved the project from Astro 5.12 to 5.18 and updated the MDX, RSS, and sitemap integrations along with it.
-
-<br>
-
-### Content and Trimming
-
-The template shipped with eight example posts, a Markdown style guide, sample project entries, and a demo page. Beyond the architecture work, making the site my own meant removing all of it and replacing it with real writing — four blog posts and the case studies in this section.
-
-Smaller changes in the same direction:
-
-- Header and footer trimmed to LinkedIn, GitHub, and email
-- Accent colors in the dark and light themes updated to match my branding
-- Custom SVG icons added for the Microsoft tooling my other projects use
-- A `featured` flag added to the blog schema for surfacing a lead post
-
-<br>
-
----
-
-<br>
-
-## What I Took Away
-
-The useful skill here was not writing an Astro site from scratch. It was reading someone else's codebase closely enough to tell which parts were well-built and which were placeholder scaffolding — and being willing to delete the second kind.
-
-The template's blog collection was the model to follow. Recognizing that the projects system should look like it, rather than inventing a third approach, made the rebuild straightforward and left the codebase more internally consistent than I found it.
-
-That is the same instinct behind the typed workflow contracts in my Copilot Studio work: define the shape of the data first, then let the platform enforce it. A build that fails on a bad image path is telling me something before a visitor ever sees the page.
-
-<br>
-
----
-
-<br>
-
-> **Starting point:** [guihubie's free Astro template](https://github.com/guihubie/free-astro-template), which provided the blog system, base component library, and design tokens this site builds on.
+</details>
