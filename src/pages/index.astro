@@ -10,8 +10,6 @@ import WorkExperience from '../components/sections/WorkExperience.astro';
 import { work } from '../data/work';
 import Studies from '../components/sections/Studies.astro';
 import { studies } from '../data/studies';
-import Carousel from '../components/ui/carousel/Carousel.astro';
-import { logos } from '../data/logos';
 import { getCollection } from 'astro:content';
 import Projects from '../components/sections/Projects.astro';
 import ArrowSeparator from '../components/ui/separator/ArrowSeparator.astro'
@@ -47,8 +45,8 @@ const featuredProjects = (await getCollection('projects'))
 		<Header />
 		<main>
       <HeroSection
-        title="Hi, I'm Caleb Way."
-        subtitle="Military linguist and intel analyst turned business systems builder. I specialize in building intelligent applications and agentic AI solutions across Microsoft 365, Power Platform and Copilot Studio."
+        title="Caleb's Portfolio"
+        subtitle="Military linguist and intel analyst turned business systems builder. I help organizations improve how they operate through modern business applications, automation, and AI."
         showCTA
         primaryCTA={{ text: 'View All Projects', href: '/projects' }}
         secondaryCTA={{ text: 'Read Insights', href: '/blog' }}
@@ -57,13 +55,9 @@ const featuredProjects = (await getCollection('projects'))
 
     <section class="py-6">
       <ArrowSeparator />
-      <Projects title="Featured Projects" projects={featuredProjects}>
-        <div class="mb-6">
-          <Carousel tools={logos} />
-        </div>
-      </Projects>
+      <SkillsSection title="Skills & Technologies" skills={skills} />
       <ArrowSeparator />
-      <SkillsSection title="Skills" skills={skills} />    
+      <Projects title="Featured Projects" projects={featuredProjects} />
       <ArrowSeparator />
       <WorkExperience title="Professional Experience" items={work} />
       <ArrowSeparator />
