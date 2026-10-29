@@ -11,11 +11,25 @@ export const workIcons = {
 
 export const work = [
     {
-      // TODO: replace the placeholder description and region before publishing.
-      title: "Cloud Solution Architect Fellow",
+      title: "Cloud Solution Architect",
       year: "2026",
       company: "Microsoft",
-      region: "United States (Remote)",
+      region: "Denver, CO (Remote)",
+      description:
+        "Supporting enterprise customers across Teleco, Media, and Gaming on AI transformation. Bridging business strategy and technical execution to design Copilot and agentic AI solutions, demonstrate real-world capabilities, and accelerate adoption of Microsoft 365 Copilot and Copilot Studio.",
+      technologies: [
+        "Power Platform",
+        "Copilot Studio",
+        "Microsoft 365",
+        "Agentic AI",
+        "Customer"
+      ],
+    },
+    {
+      title: "Corporate Fellow",
+      year: "2026",
+      company: "Microsoft",
+      region: "Monterey, CA (Remote)",
       description:
         "Selected for a competitive Hiring Our Heroes fellowship with Microsoft Federal’s AI and Business Solutions organization. Gaining hands-on exposure to customer discovery, solution design, technical demonstrations, and adoption while building deeper expertise in business applications and agentic AI.  ",
       technologies: [
