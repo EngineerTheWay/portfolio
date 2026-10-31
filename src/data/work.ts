@@ -12,7 +12,8 @@ export const workIcons = {
 export const work = [
     {
       title: "Cloud Solution Architect",
-      year: "2026",
+      year: "Present",
+      current: true,
       company: "Microsoft",
       region: "Denver, CO (Remote)",
       description:
@@ -22,7 +23,8 @@ export const work = [
         "Copilot Studio",
         "Microsoft 365",
         "Agentic AI",
-        "Customer"
+        "Customer Success",
+        "Solution Architecture"
       ],
     },
     {
@@ -37,8 +39,7 @@ export const work = [
         "Copilot Studio",
         "Dynamics 365",
         "Microsoft 365",
-        "Business Applications",
-        "AI Solutioning"
+        "Business Applications"
       ],
     },
     {

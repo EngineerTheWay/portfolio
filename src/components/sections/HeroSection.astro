@@ -7,7 +7,10 @@ interface Cta {
 
 interface Props {
   title: string;
+  lines?: string[];
   subtitle?: string;
+  eyebrow?: string;
+  align?: "left" | "center";
   showCTA?: boolean;
   primaryCTA?: Cta;
   secondaryCTA?: Cta;
@@ -15,25 +18,50 @@ interface Props {
 
 const {
   title,
+  lines = [],
   subtitle,
+  eyebrow,
+  align,
   showCTA = false,
   primaryCTA,
   secondaryCTA
 } = Astro.props as Props;
+// Pages without an eyebrow or explicit align (e.g. /projects) keep the centered layout.
+const left = align ? align === "left" : Boolean(eyebrow);
 ---
 
-<section class="w-full py-6 md:py-10">
-  <div class="mx-auto max-w-5xl px-4 text-center">
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
-      <span class="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] bg-clip-text text-transparent">{title}</span>
+<section class:list={["relative w-full py-8 md:py-14", left && "pb-[62px] md:pb-[86px]"]}>
+  {left && (
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-glow"></div>
+      <canvas class="hero-network"></canvas>
+    </div>
+  )}
+  <div class:list={["relative mx-auto max-w-5xl px-4", left ? "text-left" : "text-center"]}>
+    {eyebrow && (
+      <p class="inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/35 bg-[var(--accent)]/10 px-3 py-1 text-sm font-medium text-[var(--badge-text)] m-0">
+        {eyebrow}
+      </p>
+    )}
+    <h1 class="mt-4 font-extrabold tracking-tight text-foreground">
+      {lines.length ? lines.map((line, i) => (
+        <span class:list={[
+          "block",
+          i === 0 && "text-[2.48rem] md:text-[3.9rem] bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] bg-clip-text text-transparent",
+          i === 1 && "mt-4 text-[1.65rem] md:text-[2.6rem] text-foreground leading-[1.1]",
+          i > 1 && "mt-4 text-xl md:text-3xl font-semibold tracking-normal text-[color:var(--color-text-muted)]",
+        ]}>{line}</span>
+      )) : (
+        <span class="text-4xl md:text-6xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] bg-clip-text text-transparent">{title}</span>
+      )}
     </h1>
     {subtitle && (
-      <p class="mt-4 text-lg md:text-xl text-[color:var(--color-text-secondary)] max-w-2xl mx-auto">
+      <p class:list={["mt-4 text-lg md:text-xl text-[color:var(--color-text-secondary)] max-w-2xl", !left && "mx-auto"]}>
         {subtitle}
       </p>
     )}
     {showCTA && (primaryCTA || secondaryCTA) && (
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div class:list={["mt-8 flex flex-col sm:flex-row items-center gap-3", left ? "sm:justify-start" : "justify-center"]}>
         {primaryCTA && (
           <Button href={primaryCTA.href} variant="primary" size="md">{primaryCTA.text}</Button>
         )}
@@ -43,7 +71,153 @@ const {
       </div>
     )}
   </div>
-  
 </section>
+
+<style is:global>
+  /* Full-viewport backdrop that breaks out of the width-constrained <main>. */
+  .hero-bg {
+    position: absolute;
+    top: -3em;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  body:has(.hero-bg) { overflow-x: clip; }
+  .hero-glow {
+    position: absolute;
+    inset: -20% -10% auto auto;
+    width: 60%;
+    height: 120%;
+    background: radial-gradient(closest-side, rgba(var(--accent-rgb), 0.22), transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .hero-network {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 62%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.9;
+    -webkit-mask-image: linear-gradient(to right, transparent 5%, #000 60%);
+    mask-image: linear-gradient(to right, transparent 5%, #000 60%);
+  }
+  @media (max-width: 767px) {
+    .hero-network { width: 100%; opacity: 0.5; }
+  }
+</style>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>(".hero-network");
+  const ctx = canvas?.getContext("2d");
+  if (canvas && ctx) {
+    const section = canvas.closest("section") as HTMLElement;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const rgb =
+      getComputedStyle(document.documentElement).getPropertyValue("--accent-rgb").trim() ||
+      "255, 138, 76";
+    type Node = { x: number; y: number; vx: number; vy: number; r: number };
+    let nodes: Node[] = [];
+    let w = 0;
+    let h = 0;
+    let raf = 0;
+    const mouse = { x: 0, y: 0, active: false };
+    const LINK = 130;
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(14, Math.min(34, Math.round((w * h) / 14000)));
+      nodes = Array.from({ length: count }, () => ({
+        x: w * (0.2 + 0.8 * Math.sqrt(Math.random())),
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        r: 1 + Math.random() * 1.4,
+      }));
+    };
+
+    const draw = (animate: boolean) => {
+      ctx.clearRect(0, 0, w, h);
+      for (const n of nodes) {
+        if (animate) {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > w) n.vx *= -1;
+          if (n.y < 0 || n.y > h) n.vy *= -1;
+          if (mouse.active) {
+            const dx = n.x - mouse.x;
+            const dy = n.y - mouse.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < 160 * 160 && d2 > 1) {
+              const d = Math.sqrt(d2);
+              const f = ((160 - d) / 160) * 0.05;
+              n.x += (dx / d) * f * 10;
+              n.y += (dy / d) * f * 10;
+            }
+          }
+        }
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i];
+          const b = nodes[j];
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < LINK) {
+            ctx.strokeStyle = `rgba(${rgb}, ${(1 - d / LINK) * 0.3})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (const n of nodes) {
+        ctx.fillStyle = `rgba(${rgb}, 0.5)`;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    const loop = () => {
+      draw(true);
+      raf = requestAnimationFrame(loop);
+    };
+
+    const start = () => {
+      cancelAnimationFrame(raf);
+      if (reduced.matches) draw(false);
+      else raf = requestAnimationFrame(loop);
+    };
+
+    section.addEventListener("pointermove", (e) => {
+      const r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+      mouse.active = true;
+    });
+    section.addEventListener("pointerleave", () => (mouse.active = false));
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else start();
+    });
+    reduced.addEventListener("change", start);
+    new ResizeObserver(() => {
+      resize();
+      start();
+    }).observe(canvas);
+  }
+</script>
+
 
 

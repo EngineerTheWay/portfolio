@@ -10,7 +10,7 @@ interface Props {
 const { entry, icon } = Astro.props as Props;
 ---
 
-<article class="card-surface p-6 relative flex flex-col h-full">
+<article class="card-surface p-6 relative flex flex-col h-full" data-reveal>
   {entry.data.icon && (
     <div class="absolute right-4 top-4">
       <Image src={entry.data.icon} alt="" width={24} height={24} aria-hidden="true" />

@@ -45,22 +45,28 @@ const featuredProjects = (await getCollection('projects'))
 		<Header />
 		<main>
       <HeroSection
-        title="Caleb's Portfolio"
-        subtitle="Military linguist and intel analyst turned business systems builder, now a Cloud Solution Architect at Microsoft. I help organizations transform how they operate with business applications, agentic AI, and automation."
+        align="left"
+        {/* eyebrow="Cloud Solution Architect @ Microsoft" */}
+        title="Building Smarter Ways to Work"
+        lines={['Caleb Way', 'Building Smarter Ways to Work.']}
+        {/* third line: 'Solutions Designed Around People.' */}
+        subtitle="I help people reimagine how they work through AI agents, business applications, and intelligent automation. My background spans military intelligence, program leadership, and business systems development."
         showCTA
-        primaryCTA={{ text: 'View All Projects', href: '/projects' }}
+        primaryCTA={{ text: 'View Projects', href: '/projects' }}
         secondaryCTA={{ text: 'Read Insights', href: '/blog' }}
       />
      
 
-    <section class="py-6">
+    <section class="pt-0 pb-6">
       <ArrowSeparator />
-      <SkillsSection title="Skills & Technologies" skills={skills} />
-      <ArrowSeparator />
-      <Projects title="Featured Projects" projects={featuredProjects} />
+      <SkillsSection title="Expertise & Technologies" skills={skills} />
       <ArrowSeparator />
       <WorkExperience title="Professional Experience" items={work} />
       <ArrowSeparator />
+      {/* Featured Projects: hidden for now, uncomment to restore.
+      <Projects title="Featured Projects" projects={featuredProjects} />
+      <ArrowSeparator />
+      */}
       <Studies title="Education" items={studies} />
       <GlowLineSeparator />
 

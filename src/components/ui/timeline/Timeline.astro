@@ -2,6 +2,7 @@
 interface Item {
   title: string;
   year?: string;
+  current?: boolean;
   company: string;
   region: string;
   description: string;
@@ -63,7 +64,7 @@ const { items, centered = true } = props;
               'w-full md:w-1/2',
               isLeft ? 'pr-6 md:pr-12' : 'pl-6 md:pl-12',
             ]}>
-              <div class="card-surface p-6">
+              <div class:list={["card-surface p-6", item.current && "card-current"]}>
                 <div class="mb-2 space-y-1">
                   <h3 class="text-xs leading-snug font-semibold m-0 flex items-center gap-2">
                     <span class="inline-flex" aria-hidden="true" set:html={jobIcon} />
@@ -100,8 +101,11 @@ const { items, centered = true } = props;
     <!-- Left vertical line -->
     <div class="pointer-events-none absolute inset-y-0 left-0 md:left-[130px] w-px bg-[var(--border)]"></div>
     <div class="space-y-8 md:space-y-12">
-      {items.map((item) => (
+      {items.map((item, index) => (
         <div class="relative pl-5 md:pl-[160px]">
+          {item.current && items.length > 1 && (
+            <div class="timeline-pulse" aria-hidden="true"></div>
+          )}
           {item.year && (
             <div class="hidden md:flex absolute left-0 top-2 w-[104px] items-center justify-end gap-2">
               <span class="text-lg font-semibold text-[color:var(--color-text-secondary)]">{item.year}</span>
@@ -110,11 +114,11 @@ const { items, centered = true } = props;
               </span>
             </div>
           )}
-          <div class="absolute left-0 md:left-[130px] md:-translate-x-1/2 top-3 md:top-4 size-2 md:size-3 rounded-full bg-[var(--accent)] ring-2 md:ring-4 ring-[color:var(--background)]"></div>
+          <div class:list={["absolute left-0 md:left-[130px] md:-translate-x-1/2 top-3 md:top-4 size-2 md:size-3 rounded-full bg-[var(--accent)] ring-2 md:ring-4 ring-[color:var(--background)]", item.current && "dot-current"]}></div>
           {item.year && (
             <div class="md:hidden mb-2 text-sm font-semibold tracking-wide text-[var(--accent)]">{item.year}</div>
           )}
-          <div class="card-surface p-4 md:p-6 w-full min-w-0">
+          <div class:list={["card-surface p-4 md:p-6 w-full min-w-0", item.current && "card-current"]}>
             <div class="mb-2 space-y-1">
               <h3 class="text-xs leading-snug font-semibold m-0 flex items-center gap-2">
                 <span class="inline-flex" aria-hidden="true" set:html={jobIcon} />
@@ -145,5 +149,43 @@ const { items, centered = true } = props;
     </div>
   </div>
 )}
+
+<style is:global>
+  /* Runs from the previous role's dot up to the current role's dot. Offsets
+     match the dot centres (16px / 22px) and the item gap (2rem / 3rem). */
+  .timeline-pulse {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    bottom: calc(-2rem - 16px);
+    width: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(to top, transparent 0%, var(--accent) 50%, transparent 100%);
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    animation: timeline-pulse-run 2.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .timeline-pulse { left: 130px; top: 22px; bottom: calc(-3rem - 22px); }
+  }
+  .dot-current { animation: timeline-dot-pulse 2.8s ease-out infinite; }
+
+  @keyframes timeline-pulse-run {
+    0%   { background-position: 0 100%; opacity: 0; }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { background-position: 0 0; opacity: 0; }
+  }
+  @keyframes timeline-dot-pulse {
+    0%, 70% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.55); }
+    100%    { box-shadow: 0 0 0 10px rgba(var(--accent-rgb), 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-pulse, .dot-current { animation: none; }
+    .timeline-pulse { display: none; }
+  }
+</style>
 
 
